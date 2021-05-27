@@ -1,0 +1,88 @@
+{
+  "name": "@uiw/react-heat-map",
+  "version": "1.0.0",
+  "description": "Create calendar heatmap to visualize time series data, a la github contribution graph.",
+  "homepage": "https://uiwjs.github.io/react-heat-map/",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "scripts": {
+    "doc": "kkt build --app-src ./website",
+    "start": "kkt start --app-src ./website",
+    "build": "npm run build:lib && npm run doc",
+    "build:lib": "npm run ts:build && npm run types:esm && npm run types:cjs && npm run css:build",
+    "watch": "npm run ts:watch & npm run types:watch & npm run css:watch",
+    "types:build": "tsbb types --sourceRoot src --target ESNEXT",
+    "types:watch": "npm run types:esm -- --watch & npm run types:cjs -- --watch",
+    "types:esm": "npm run types:build -- --outDir ../lib/esm",
+    "types:cjs": "npm run types:build -- --outDir ../lib/cjs",
+    "css:build": "compile-less -d src -o lib/esm",
+    "css:watch": "compile-less -d src -o lib/esm --watch",
+    "ts:watch": "tsbb watch --env-name esm:dev --env-name cjs --target react",
+    "ts:build": "tsbb build --target react",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uiwjs/react-heat-map.git"
+  },
+  "author": "kenny wong <wowohoo@qq.com>",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "heat-map",
+    "react-heat-map",
+    "uiw",
+    "uiwjs",
+    "code"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,tsx,ts,less,md,json}": [
+      "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\""
+    ]
+  },
+  "peerDependencies": {
+    "@babel/runtime": ">=7.10.0",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "devDependencies": {
+    "@kkt/less-modules": "6.9.0",
+    "@kkt/raw-modules": "6.9.0",
+    "@kkt/scope-plugin-options": "6.9.0",
+    "@types/react": "17.0.8",
+    "@types/react-dom": "17.0.5",
+    "@uiw/reset.css": "1.0.4",
+    "@uiw/react-markdown-preview": "3.0.6",
+    "compile-less-cli": "1.7.0",
+    "husky": "4.3.8",
+    "kkt": "6.9.0",
+    "lint-staged": "11.0.0",
+    "prettier": "2.3.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "tsbb": "2.1.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
