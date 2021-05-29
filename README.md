@@ -7,6 +7,7 @@ HeatMap 日历热图
 [![Stars](https://img.shields.io/github/stars/uiwjs/react-heat-map.svg)](https://github.com/uiwjs/react-heat-map/stargazers)
 [![Release](https://img.shields.io/github/release/uiwjs/react-heat-map)](https://github.com/uiwjs/react-heat-map/releases)
 [![npm version](https://img.shields.io/npm/v/@uiw/react-heat-map.svg)](https://www.npmjs.com/package/@uiw/react-heat-map)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@uiw/react-heat-map)](https://www.npmjs.com/package/@uiw/react-heat-map)
 
 React component create calendar heatmap to visualize time series data, a la github contribution graph.
 
