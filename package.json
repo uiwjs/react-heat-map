@@ -1,7 +1,7 @@
 {
   "name": "@uiw/react-heat-map",
   "version": "1.0.0",
-  "description": "Create calendar heatmap to visualize time series data, a la github contribution graph.",
+  "description": "React component create calendar heatmap to visualize time series data, a la github contribution graph.",
   "homepage": "https://uiwjs.github.io/react-heat-map/",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
@@ -58,6 +58,8 @@
     "@types/react-dom": "17.0.5",
     "@uiw/reset.css": "1.0.4",
     "@uiw/react-markdown-preview": "3.0.6",
+    "@uiw/react-github-corners": "1.2.0",
+    "@uiw/react-code-preview": "1.11.13",
     "compile-less-cli": "1.7.0",
     "husky": "4.3.8",
     "kkt": "6.9.0",

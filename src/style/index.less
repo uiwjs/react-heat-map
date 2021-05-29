@@ -1,9 +1,23 @@
 @w-heatmap:~ "w-heatmap";
 
-.@{w-heatmap} {
+svg.@{w-heatmap} {
   user-select: none;
-  svg {
+  display: block;
+  rect {
     display: block;
-    min-width: 100%;
+    cursor: pointer;
+    &:hover {
+      stroke: rgba(0, 0, 0, 0.14);
+      stroke-width: 1px;
+    }
+    &:active {
+      fill: #196127;
+      stroke-width: 0;
+    }
+  }
+  text {
+    text-anchor: middle;
+    font-size: 9px;
+    fill: currentColor;
   }
 }

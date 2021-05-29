@@ -1,6 +1,10 @@
+html {
+  background-color: #282c34;
+}
+
 .header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,8 +23,13 @@
   text-align: center;
 }
 
+.app {
+  padding-bottom: 70px;
+  background-color: #fff;
+}
+
 .content {
-  max-width: 850px;
+  max-width: 950px;
   margin: 0 auto;
   padding-top: 25px;
 }
@@ -29,4 +38,29 @@
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 0 1px rgb(16 22 26 / 10%), 0 0 0 rgb(16 22 26 / 0%), 0 1px 1px rgb(16 22 26 / 20%);
+  margin: 0 auto;
+  margin-top: -100px;
+  position: relative;
+  z-index: 999;
+}
+.example svg {
+  border-radius: 5px;
+}
+
+.tools {
+  user-select: none;
+  font-size: 12px;
+  margin-top: 10px !important;
+  padding: 10px;
+  padding-left: 0px;
+  border-radius: 5px;
+  background-color: #efefef;
+}
+.tools label input {
+  margin-right: 5px;
+  margin-left: 10px;
+}
+.tools label {
+  display: flex;
+  align-items: center;
 }
