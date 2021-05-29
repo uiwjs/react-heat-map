@@ -3,6 +3,8 @@ import { WeekLables } from './WeekLables';
 import { RectDay, RectDayDefaultProps } from './RectDay';
 import { formatData, getDateToString, existColor, numberSort } from './utils';
 
+const oneDayTime = 24 * 60 * 60 * 1000;
+
 export type HeatMapValue = {
   date: string;
   content: string | string[] | React.ReactNode;
@@ -41,8 +43,7 @@ export default function SVG(props: SVGProps) {
   const [gridNum, setGridNum] = useState(0);
   const [leftPad, setLeftPad] = useState(!!weekLables ? 28 : 5);
   const svgRef = React.createRef<SVGSVGElement>();
-  const oneDayTime = 24 * 60 * 60 * 1000;
-  const nums = numberSort(Object.keys(panelColors).map((item) => parseInt(item, 10)));
+  const nums = useMemo(() => numberSort(Object.keys(panelColors).map((item) => parseInt(item, 10))), [panelColors]);
   const data = useMemo(() => formatData(value), [value]);
   useEffect(() => setLeftPad(!!weekLables ? 28 : 5), [weekLables]);
   useEffect(() => {
