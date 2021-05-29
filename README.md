@@ -17,7 +17,7 @@ React component create calendar heatmap to visualize time series data, a la gith
 npm install @uiw/react-heat-map --save
 ```
 
-## 基础用法
+## Basic Usage
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
@@ -45,16 +45,17 @@ ReactDOM.render(<Demo />, _mount_);
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
-| value | 需要显示的数据，必填 | Array | `[]` |
-| rectSize | 方格尺寸 | number | `11` |
-| startDate | 开始日期 | Date | `new Date()` |
-| endDate | 截止日期 | Date | - |
-| space | 方格尺寸之间间隔 | number | `2` | 
-| rectProps | 方格节点属性设置 | `React.SVGProps<SVGRectElement>` | `2` |
-| weekLables | 周显示 | string[] | `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']` | 
-| monthLables | 月份显示 | string[] | `['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']` | 
-| panelColors | 活跃颜色的深浅 | `Record<number, string>` | `{ 0: '#EBEDF0', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#196127' }` | 
-| renderRect | 单个方块重新渲染 | `() => React.ReactNode` | - |
+| value | Data to be displayed, **required** | Array | `[]` |
+| rectSize | Grid size | number | `11` |
+| startDate | Start date | Date | `new Date()` |
+| endDate | End date | Date | - |
+| space | Interval between grid sizes | number | `2` | 
+| rectProps | Grid node attribute settings | `React.SVGProps<SVGRectElement>` | `2` |
+| weekLables | Week display | string[] | `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']` | 
+| monthLables | Month display | string[] | `['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']` | 
+| panelColors | Backgroud color of active colors | `Record<number, string>` | `{ 0: '#EBEDF0', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#196127' }` | 
+| renderRect | Single block re-render | `() => React.ReactNode` | - |
+
 ## Development
 
 **`development`**
