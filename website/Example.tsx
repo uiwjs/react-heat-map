@@ -70,7 +70,7 @@ export default function Example() {
         <HeatMap
           style={{
             backgroundColor: enableDark ? '#000' : '#fff',
-            color: enableDark ? '#fff' : '#000',
+            color: enableDark ? '#888' : '#000',
           }}
           panelColors={enableDark ? darkColor : undefined}
           width={663}
