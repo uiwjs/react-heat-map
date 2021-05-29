@@ -10,7 +10,7 @@
     "doc": "kkt build --app-src ./website",
     "start": "kkt start --app-src ./website",
     "build": "npm run build:lib && npm run doc",
-    "build:lib": "npm run ts:build && npm run types:esm && npm run types:cjs && npm run css:build",
+    "build:lib": "npm run ts:build && npm run types:esm && npm run types:cjs && npm run css:build && npm run css:build:dist",
     "watch": "npm run ts:watch & npm run types:watch & npm run css:watch",
     "types:build": "tsbb types --sourceRoot src --target ESNEXT",
     "types:watch": "npm run types:esm -- --watch & npm run types:cjs -- --watch",
@@ -18,6 +18,7 @@
     "types:cjs": "npm run types:build -- --outDir ../lib/cjs",
     "css:build": "compile-less -d src -o lib/esm",
     "css:watch": "compile-less -d src -o lib/esm --watch",
+    "css:build:dist": "compile-less -d src --combine dist/heat-map.css --rm-global",
     "ts:watch": "tsbb watch --env-name esm:dev --env-name cjs --target react",
     "ts:build": "tsbb build --target react",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\""
