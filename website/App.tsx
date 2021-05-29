@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import GitHubCorners from '@uiw/react-github-corners';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import logo from './logo.svg';
-import styles from './App.module.css';
+import styles from './App.module.less';
 import HeatMap, { RectDayElement } from '../';
 import MDStr from '../README.md';
 
