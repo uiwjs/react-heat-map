@@ -7,7 +7,7 @@ HeatMap 日历热图
 [![Stars](https://img.shields.io/github/stars/uiwjs/react-heat-map.svg)](https://github.com/uiwjs/react-heat-map/stargazers)
 [![Release](https://img.shields.io/github/release/uiwjs/react-heat-map)](https://github.com/uiwjs/react-heat-map/releases)
 [![npm version](https://img.shields.io/npm/v/@uiw/react-heat-map.svg)](https://www.npmjs.com/package/@uiw/react-heat-map)
-[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@uiw/react-heat-map)](https://www.npmjs.com/package/@uiw/react-heat-map)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@uiw/react-heat-map)](https://bundlephobia.com/result?p=@uiw/react-heat-map)
 
 React component create calendar heatmap to visualize time series data, a la github contribution graph.
 
@@ -55,7 +55,7 @@ ReactDOM.render(<Demo />, _mount_);
 | weekLables | Week display | string[] | `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']` | 
 | monthLables | Month display | string[] | `['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']` | 
 | panelColors | Backgroud color of active colors | `Record<number, string>` | `{ 0: '#EBEDF0', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#196127' }` | 
-| renderRect | Single block re-render | `() => React.ReactNode` | - |
+| renderRect | Single block re-render | `(SVGRectElement & RectDayDefaultProps & { fill?: string }) => React.ReactNode` | - |
 
 ## Development
 
