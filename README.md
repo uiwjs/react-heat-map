@@ -80,6 +80,7 @@ ReactDOM.render(<Demo />, _mount_);
 |--------- |-------- |--------- |-------- |
 | value | Data to be displayed, **required** | Array | `[]` |
 | rectSize | Grid size | number | `11` |
+| legendCellSize | Size of the legend cells, in pixel. Value equal to `0` hide legend. | number | `11` |
 | startDate | Start date | Date | `new Date()` |
 | endDate | End date | Date | - |
 | space | Interval between grid sizes | number | `2` | 
@@ -87,7 +88,7 @@ ReactDOM.render(<Demo />, _mount_);
 | weekLables | Week display | string[] | `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']` | 
 | monthLables | Month display | string[] | `['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']` | 
 | panelColors | Backgroud color of active colors | `Record<number, string>` | `{ 0: '#EBEDF0', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#196127' }` | 
-| renderRect | Single block re-render | `(SVGRectElement & RectDayDefaultProps & { fill?: string }) => React.ReactNode` | - |
+| renderRect | Single block re-render | `(data: SVGRectElement & RectDayDefaultProps & { fill?: string }, valueItem?: HeatMapValue) => React.ReactNode` | - |
 
 ## Development
 

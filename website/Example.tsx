@@ -64,6 +64,7 @@ export default function Example() {
   const [enableDark, setEnableDark] = useState(false);
   const [enableCircle, setEnableCircle] = useState(false);
   const [rectSize, setRectSize] = useState(11);
+  const [legendCellSize, setLegendCellSize] = useState<number | undefined>();
   const [enableWeekLables, setEnableWeekLables] = useState<false | undefined | string[]>(undefined);
   return (
     <Fragment>
@@ -76,13 +77,13 @@ export default function Example() {
           panelColors={enableDark ? darkColor : undefined}
           width={663}
           rectSize={rectSize}
+          legendCellSize={legendCellSize}
           weekLables={enableWeekLables}
           startDate={new Date('2016/01/01')}
           endDate={enableEndDate ? new Date('2016/6/01') : undefined}
           value={value}
           rectProps={{
             onClick: (e) => {
-              console.log('wwww', (e.target as any).dataset.date);
               setSelectaDate((e.target as any).dataset.date);
             },
           }}
@@ -171,6 +172,17 @@ export default function Example() {
           <label>
             <input type="radio" name="rectSize" checked={rectSize === 14} onChange={(e) => setRectSize(14)} />
             rectSize = 14
+          </label>
+        </div>
+
+        <div style={{ display: 'flex' }}>
+          <label>
+            <input
+              type="number"
+              value={legendCellSize || ''}
+              onChange={(e) => setLegendCellSize(Number(e.target.value) || 0)}
+            />
+            legendCellSize = {legendCellSize}
           </label>
         </div>
       </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { WeekLables } from './WeekLables';
 import { RectDay, RectDayDefaultProps } from './RectDay';
 import { formatData, getDateToString, existColor, numberSort, isValidDate } from './utils';
+import Legend from './Legend';
 
 const oneDayTime = 24 * 60 * 60 * 1000;
 
@@ -17,9 +18,13 @@ export interface SVGProps extends React.SVGProps<SVGSVGElement> {
   startDate?: Date;
   endDate?: Date;
   rectSize?: number;
+  legendCellSize?: number;
   space?: number;
   rectProps?: RectDayElement | RectDayDefaultProps;
-  renderRect?: <E = SVGRectElement>(data: E & RectDayDefaultProps & { fill?: string }) => React.ReactElement | void;
+  renderRect?: <E = SVGRectElement>(
+    data: E & RectDayDefaultProps & { fill?: string },
+    valueItem?: HeatMapValue,
+  ) => React.ReactElement | void;
   value?: Array<HeatMapValue>;
   weekLables?: string[] | false;
   monthLables?: string[];
@@ -29,6 +34,7 @@ export interface SVGProps extends React.SVGProps<SVGSVGElement> {
 export default function SVG(props: SVGProps) {
   const {
     rectSize = 11,
+    legendCellSize = 11,
     space = 2,
     startDate = new Date(),
     endDate,
@@ -42,6 +48,7 @@ export default function SVG(props: SVGProps) {
   } = props || {};
   const [gridNum, setGridNum] = useState(0);
   const [leftPad, setLeftPad] = useState(!!weekLables ? 28 : 5);
+  const [topPad, setTopPad] = useState(!!monthLables ? 20 : 5);
   const svgRef = React.createRef<SVGSVGElement>();
   const nums = useMemo(() => numberSort(Object.keys(panelColors).map((item) => parseInt(item, 10))), [panelColors]);
   const data = useMemo(() => formatData(value), [value]);
@@ -53,6 +60,10 @@ export default function SVG(props: SVGProps) {
     }
   }, [rectSize, svgRef, space, leftPad]);
 
+  useEffect(() => {
+    setTopPad(!!monthLables ? 20 : 5);
+  }, [monthLables]);
+
   const initStartDate = useMemo(() => {
     if (isValidDate(startDate)) {
       return !startDate.getDay() ? startDate : new Date(startDate.getTime() - startDate.getDay() * oneDayTime);
@@ -61,11 +72,19 @@ export default function SVG(props: SVGProps) {
       return new Date(newDate.getTime() - newDate.getDay() * oneDayTime);
     }
   }, [startDate]);
-
+  console.log('legendCellSize>', typeof legendCellSize);
   return (
     <svg ref={svgRef} {...other}>
+      <Legend
+        panelColors={panelColors}
+        rectSize={rectSize}
+        legendCellSize={legendCellSize}
+        leftPad={leftPad}
+        topPad={topPad}
+        space={space}
+      />
       <WeekLables weekLables={weekLables} rectSize={rectSize} space={space} />
-      <g transform={`translate(${leftPad}, 20)`}>
+      <g transform={`translate(${leftPad}, ${topPad})`}>
         {[...Array(gridNum)].map((_, idx) => {
           return (
             <g key={idx} data-column={idx}>
@@ -90,7 +109,7 @@ export default function SVG(props: SVGProps) {
                   dayProps.fill = panelColors[0];
                 }
                 if (renderRect && typeof renderRect === 'function') {
-                  const elm = renderRect(dayProps);
+                  const elm = renderRect(dayProps, data[dayProps.date]);
                   if (elm && React.isValidElement(elm)) {
                     return elm;
                   }
