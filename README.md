@@ -27,16 +27,48 @@ import HeatMap from '@uiw/react-heat-map';
 
 const Demo = () => {
   const value = [
-    { date: '2016/01/11', count:2, content:['一条消息来了！','一条消息来了！'] },
-    { date: '2016/04/11', count:2, content:['一条消息来了！'] },
-    { date: '2016/05/01', count:5, content:['需要显示的数据'] },
-    { date: '2016/05/02', count:5, content:['空的没有消息'] },
-    { date: '2016/05/04', count:11, content:['些放弃的人会这样想'] },
+    { date: '2016/01/11', count: 2 },
+    { date: '2016/01/12', count: 20 },
+    { date: '2016/01/13', count: 10 },
+    { date: '2016/04/11', count: 2 },
+    { date: '2016/05/01', count: 5 },
+    { date: '2016/05/02', count: 5 },
+    { date: '2016/05/04', count: 11 },
   ];
   return (
     <div>
       <HeatMap value={value} startDate={new Date('2016/01/01')} />
     </div>
+  )
+};
+ReactDOM.render(<Demo />, _mount_);
+```
+
+## Set Color
+
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
+```jsx
+import ReactDOM from 'react-dom';
+import HeatMap from '@uiw/react-heat-map';
+
+const Demo = () => {
+  const value = [
+    { date: '2016/01/11', count:2 },
+    { date: '2016/04/12', count:2 },
+    { date: '2016/05/01', count:5 },
+    { date: '2016/05/02', count:5 },
+    { date: '2016/05/03', count:1 },
+    { date: '2016/05/04', count:11 },
+    { date: '2016/05/08', count:32 },
+  ];
+  return (
+    <HeatMap
+      value={value}
+      width={600}
+      style={{ color: 'red' }}
+      startDate={new Date('2016/01/01')}
+      panelColors={{ 0: '#f4decd', 2: '#e4b293', 4: '#d48462', 10: '#c2533a', 20: '#ad001d' }}
+    />
   )
 };
 ReactDOM.render(<Demo />, _mount_);

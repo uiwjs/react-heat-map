@@ -4,8 +4,8 @@ import CodePreview, { CodePreviewProps } from '@uiw/react-code-preview';
 export interface CodeProps extends CodePreviewProps {
   language: string;
   code: string;
-  codeSandbox: boolean;
-  codePen: boolean;
+  codeSandbox?: boolean;
+  codePen?: boolean;
   dependencies: any;
 }
 

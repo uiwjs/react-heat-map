@@ -59,6 +59,7 @@ const darkColor = { 0: 'rgb(255 255 255 / 25%)', 8: '#7BC96F', 4: '#C6E48B', 12:
 
 export default function Example() {
   const [value, setValue] = useState(data2);
+  const [selectaDate, setSelectaDate] = useState();
   const [enableEndDate, setEnableEndDate] = useState(false);
   const [enableDark, setEnableDark] = useState(false);
   const [enableCircle, setEnableCircle] = useState(false);
@@ -80,8 +81,9 @@ export default function Example() {
           endDate={enableEndDate ? new Date('2016/6/01') : undefined}
           value={value}
           rectProps={{
-            onClick: () => {
-              console.log('wwww');
+            onClick: (e) => {
+              console.log('wwww', (e.target as any).dataset.date);
+              setSelectaDate((e.target as any).dataset.date);
             },
           }}
           renderRect={({
@@ -113,6 +115,7 @@ export default function Example() {
         <div style={{ paddingLeft: 10 }}>
           <button onClick={() => setValue(data)}>Value 1</button>
           <button onClick={() => setValue(data2)}>Value 2</button>
+          <span>{selectaDate}</span>
         </div>
         <label>
           <input type="checkbox" checked={enableEndDate} onChange={(e) => setEnableEndDate(e.target.checked)} />
