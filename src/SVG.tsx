@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { WeekLables } from './WeekLables';
 import { RectDay, RectDayDefaultProps } from './RectDay';
-import { formatData, getDateToString, existColor, numberSort } from './utils';
+import { formatData, getDateToString, existColor, numberSort, isValidDate } from './utils';
 
 const oneDayTime = 24 * 60 * 60 * 1000;
 
@@ -52,6 +52,16 @@ export default function SVG(props: SVGProps) {
       setGridNum(Math.floor(width / (rectSize + space)) || 0);
     }
   }, [rectSize, svgRef, space, leftPad]);
+
+  const initStartDate = useMemo(() => {
+    if (isValidDate(startDate)) {
+      return !startDate.getDay() ? startDate : new Date(startDate.getTime() - startDate.getDay() * oneDayTime);
+    } else {
+      const newDate = new Date();
+      return new Date(newDate.getTime() - newDate.getDay() * oneDayTime);
+    }
+  }, [startDate]);
+
   return (
     <svg ref={svgRef} {...other}>
       <WeekLables weekLables={weekLables} rectSize={rectSize} space={space} />
@@ -69,12 +79,10 @@ export default function SVG(props: SVGProps) {
                   column: idx,
                   fill: '#EBEDF0',
                 };
-                if (startDate instanceof Date) {
-                  const currentDate = new Date(startDate.getTime() + oneDayTime * (idx * 7 + cidx));
-                  dayProps.date = getDateToString(currentDate);
-                  if (endDate instanceof Date && currentDate.getTime() > endDate.getTime()) {
-                    return null;
-                  }
+                const currentDate = new Date(initStartDate.getTime() + oneDayTime * (idx * 7 + cidx));
+                dayProps.date = getDateToString(currentDate);
+                if (endDate instanceof Date && currentDate.getTime() > endDate.getTime()) {
+                  return null;
                 }
                 if (dayProps.date && data[dayProps.date] && panelColors && Object.keys(panelColors).length > 0) {
                   dayProps.fill = existColor(data[dayProps.date].count || 0, nums, panelColors);

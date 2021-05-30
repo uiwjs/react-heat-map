@@ -1,6 +1,6 @@
 import { SVGProps, HeatMapValue } from './SVG';
 
-function isValidDate(date: Date) {
+export function isValidDate(date: Date) {
   return date instanceof Date && !isNaN(date.getTime());
 }
 
