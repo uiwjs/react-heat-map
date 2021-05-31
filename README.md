@@ -11,7 +11,7 @@ HeatMap 日历热图
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@uiw/react-heat-map)](https://bundlephobia.com/result?p=@uiw/react-heat-map)
 <!--rehype:style=text-align: center;-->
 
-React component create calendar heatmap to visualize time series data, a la github contribution graph.
+A lightweight calendar heatmap react component built on SVG, customizable version of GitHub's contribution graph. Try it out on [website example](uiwjs.github.io/react-heat-map/).
 
 ## Install
 
@@ -21,6 +21,8 @@ npm install @uiw/react-heat-map --save
 ```
 
 ## Basic Usage
+
+Basic usage example, Please pay warning to the time setting. ⚠️ Example: `2016/01/11`<!--rehype:style=color: green;--> -> ~~`2016-01-11`~~<!--rehype:style=color: red;-->, Support `Safari`
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
@@ -32,6 +34,7 @@ const Demo = () => {
     { date: '2016/01/11', count: 2 },
     { date: '2016/01/12', count: 20 },
     { date: '2016/01/13', count: 10 },
+    ...[...Array(17)].map((_, idx) => ({ date: `2016/02/${idx + 10}`, count: idx, content: '' })),
     { date: '2016/04/11', count: 2 },
     { date: '2016/05/01', count: 5 },
     { date: '2016/05/02', count: 5 },
@@ -47,6 +50,8 @@ ReactDOM.render(<Demo />, _mount_);
 ```
 
 ## Set Color
+
+Set the theme color style.
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
@@ -67,7 +72,7 @@ const Demo = () => {
     <HeatMap
       value={value}
       width={600}
-      style={{ color: 'red' }}
+      style={{ color: '#ad001d' }}
       startDate={new Date('2016/01/01')}
       panelColors={{ 0: '#f4decd', 2: '#e4b293', 4: '#d48462', 10: '#c2533a', 20: '#ad001d' }}
     />
@@ -75,11 +80,49 @@ const Demo = () => {
 };
 ReactDOM.render(<Demo />, _mount_);
 ```
+## Set Rect Style
+
+Set the radius of the rect.
+
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
+```jsx
+import ReactDOM from 'react-dom';
+import HeatMap from '@uiw/react-heat-map';
+
+const Demo = () => {
+  const [range, setRange] = useState(5)
+  const value = [
+    { date: '2016/01/11', count:2 },
+    ...[...Array(17)].map((_, idx) => ({ date: `2016/01/${idx + 10}`, count: idx, content: '' })),
+    ...[...Array(17)].map((_, idx) => ({ date: `2016/02/${idx + 10}`, count: idx, content: '' })),
+    { date: '2016/04/12', count:2 },
+    { date: '2016/05/01', count:5 },
+    { date: '2016/05/02', count:5 },
+    { date: '2016/05/03', count:1 },
+    { date: '2016/05/04', count:11 },
+    { date: '2016/05/08', count:32 },
+  ];
+  return (
+    <div>
+      <input type="range" min="0" max="5" step="0.1" value={range} onChange={(e) => setRange(e.target.value)} /> {range}
+      <HeatMap
+        value={value}
+        width={600}
+        startDate={new Date('2016/01/01')}
+        rectProps={{
+          rx: range
+        }}
+      />
+    </div>
+  )
+};
+ReactDOM.render(<Demo />, _mount_);
+```
 
 ## Props
 
-| 参数 | 说明 | 类型 | 默认值 |
-|--------- |-------- |--------- |-------- |
+| Property | Description | Type | Default |
+| ---- | ---- | ---- | ---- |
 | value | Data to be displayed, **required** | Array | `[]` |
 | rectSize | Grid size | number | `11` |
 | legendCellSize | Size of the legend cells, in pixel. Value equal to `0` hide legend. | number | `11` |

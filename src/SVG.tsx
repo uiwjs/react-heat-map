@@ -1,10 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { WeekLables } from './WeekLables';
+import { LablesWeek } from './LablesWeek';
+import { LablesMonth } from './LablesMonth';
 import { RectDay, RectDayDefaultProps } from './RectDay';
-import { formatData, getDateToString, existColor, numberSort, isValidDate } from './utils';
+import { formatData, getDateToString, existColor, numberSort, isValidDate, oneDayTime } from './utils';
 import Legend from './Legend';
-
-const oneDayTime = 24 * 60 * 60 * 1000;
 
 export type HeatMapValue = {
   date: string;
@@ -27,7 +26,7 @@ export interface SVGProps extends React.SVGProps<SVGSVGElement> {
   ) => React.ReactElement | void;
   value?: Array<HeatMapValue>;
   weekLables?: string[] | false;
-  monthLables?: string[];
+  monthLables?: string[] | false;
   panelColors?: Record<number, string>;
 }
 
@@ -72,18 +71,28 @@ export default function SVG(props: SVGProps) {
       return new Date(newDate.getTime() - newDate.getDay() * oneDayTime);
     }
   }, [startDate]);
-  console.log('legendCellSize>', typeof legendCellSize);
+
   return (
     <svg ref={svgRef} {...other}>
-      <Legend
-        panelColors={panelColors}
+      {legendCellSize !== 0 && (
+        <Legend
+          panelColors={panelColors}
+          rectSize={rectSize}
+          legendCellSize={legendCellSize}
+          leftPad={leftPad}
+          topPad={topPad}
+          space={space}
+        />
+      )}
+      <LablesWeek weekLables={weekLables} rectSize={rectSize} space={space} topPad={topPad} />
+      <LablesMonth
+        monthLables={monthLables}
         rectSize={rectSize}
-        legendCellSize={legendCellSize}
-        leftPad={leftPad}
-        topPad={topPad}
         space={space}
+        leftPad={leftPad}
+        colNum={gridNum}
+        startDate={initStartDate}
       />
-      <WeekLables weekLables={weekLables} rectSize={rectSize} space={space} />
       <g transform={`translate(${leftPad}, ${topPad})`}>
         {[...Array(gridNum)].map((_, idx) => {
           return (

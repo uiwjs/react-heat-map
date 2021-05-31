@@ -1,5 +1,7 @@
 import { SVGProps, HeatMapValue } from './SVG';
 
+export const oneDayTime = 24 * 60 * 60 * 1000;
+
 export function isValidDate(date: Date) {
   return date instanceof Date && !isNaN(date.getTime());
 }

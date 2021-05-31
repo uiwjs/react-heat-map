@@ -20,7 +20,7 @@ export default function Legend({
   ...props
 }: LegendProps) {
   let size = legendCellSize || rectSize;
-  const view = useMemo(
+  return useMemo(
     () => (
       <Fragment>
         {Object.keys(panelColors || {}).map((num, key) => (
@@ -28,7 +28,7 @@ export default function Legend({
             key={key}
             {...props}
             x={(size + 1) * key + leftPad}
-            y={topPad + rectSize * 8 + 10}
+            y={topPad + rectSize * 8 + 6}
             fill={panelColors![Number(num)]}
             width={size}
             height={size}
@@ -38,5 +38,4 @@ export default function Legend({
     ),
     [panelColors, props, rectSize, leftPad, topPad, size],
   );
-  return legendCellSize === 0 ? <Fragment /> : view;
 }

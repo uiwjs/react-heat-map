@@ -29,8 +29,8 @@ const App: React.FC = () => {
         <p className={styles.info}>
           React component create calendar heatmap to visualize time series data, a la github contribution graph.
         </p>
+        <Example />
       </header>
-      <Example />
       <MarkdownPreview
         source={MDStr}
         className={styles.content}

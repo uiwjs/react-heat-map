@@ -34,14 +34,13 @@ export default function Code({ language, dependencies, codePen, codeSandbox, ...
         },
         'package.json': {
           content: {
-            name: 'react-heat-map-demo',
-            description: `react-heat-map - demo`,
+            name: 'react-heat-map-example',
+            description: `react-heat-map - example`,
             dependencies: {
               react: 'latest',
               'react-dom': 'latest',
               'react-heat-map': 'latest',
-            },
-            devDependencies: {
+
               '@kkt/less-modules': '6.9.0',
               kkt: '6.9.0',
               typescript: '4.1.3',
