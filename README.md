@@ -11,7 +11,7 @@ HeatMap 日历热图
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@uiw/react-heat-map)](https://bundlephobia.com/result?p=@uiw/react-heat-map)
 <!--rehype:style=text-align: center;-->
 
-A lightweight calendar heatmap react component built on SVG, customizable version of GitHub's contribution graph. Try it out on [website example](uiwjs.github.io/react-heat-map/).
+A lightweight calendar heatmap react component built on SVG, customizable version of GitHub's contribution graph. Try it out on [website example](https://uiwjs.github.io/react-heat-map/).
 
 ## Install
 
