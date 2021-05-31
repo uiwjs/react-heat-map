@@ -13,13 +13,13 @@
     "static/js/5.db9ae5d6.chunk.js": "/react-heat-map/static/js/5.db9ae5d6.chunk.js",
     "static/js/5.db9ae5d6.chunk.js.map": "/react-heat-map/static/js/5.db9ae5d6.chunk.js.map",
     "main.css": "/react-heat-map/static/css/main.2e0520de.chunk.css",
-    "main.js": "/react-heat-map/static/js/main.c5b6e158.chunk.js",
-    "main.js.map": "/react-heat-map/static/js/main.c5b6e158.chunk.js.map",
+    "main.js": "/react-heat-map/static/js/main.46995d92.chunk.js",
+    "main.js.map": "/react-heat-map/static/js/main.46995d92.chunk.js.map",
     "runtime-main.js": "/react-heat-map/static/js/runtime-main.596b4974.js",
     "runtime-main.js.map": "/react-heat-map/static/js/runtime-main.596b4974.js.map",
     "static/css/8.c7aa79bf.chunk.css": "/react-heat-map/static/css/8.c7aa79bf.chunk.css",
-    "static/js/8.789865c9.chunk.js": "/react-heat-map/static/js/8.789865c9.chunk.js",
-    "static/js/8.789865c9.chunk.js.map": "/react-heat-map/static/js/8.789865c9.chunk.js.map",
+    "static/js/8.a1baea84.chunk.js": "/react-heat-map/static/js/8.a1baea84.chunk.js",
+    "static/js/8.a1baea84.chunk.js.map": "/react-heat-map/static/js/8.a1baea84.chunk.js.map",
     "static/js/9.dce1a9b0.chunk.js": "/react-heat-map/static/js/9.dce1a9b0.chunk.js",
     "static/js/9.dce1a9b0.chunk.js.map": "/react-heat-map/static/js/9.dce1a9b0.chunk.js.map",
     "static/js/10.b0b00fb0.chunk.js": "/react-heat-map/static/js/10.b0b00fb0.chunk.js",
@@ -254,15 +254,15 @@
     "static/css/8.c7aa79bf.chunk.css.map": "/react-heat-map/static/css/8.c7aa79bf.chunk.css.map",
     "static/css/main.2e0520de.chunk.css.map": "/react-heat-map/static/css/main.2e0520de.chunk.css.map",
     "static/js/116.746d9ae9.chunk.js.LICENSE.txt": "/react-heat-map/static/js/116.746d9ae9.chunk.js.LICENSE.txt",
-    "static/js/8.789865c9.chunk.js.LICENSE.txt": "/react-heat-map/static/js/8.789865c9.chunk.js.LICENSE.txt",
+    "static/js/8.a1baea84.chunk.js.LICENSE.txt": "/react-heat-map/static/js/8.a1baea84.chunk.js.LICENSE.txt",
     "static/media/escape-regexp.cjs": "/react-heat-map/static/media/escape-regexp.04fafb46.cjs",
     "static/media/logo.3931a054.svg": "/react-heat-map/static/media/logo.3931a054.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.596b4974.js",
     "static/css/8.c7aa79bf.chunk.css",
-    "static/js/8.789865c9.chunk.js",
+    "static/js/8.a1baea84.chunk.js",
     "static/css/main.2e0520de.chunk.css",
-    "static/js/main.c5b6e158.chunk.js"
+    "static/js/main.46995d92.chunk.js"
   ]
 }
