@@ -1,5 +1,6 @@
 HeatMap 日历热图
 ===
+<!--rehype:style=text-align: center;-->
 
 [![Build & Deploy](https://github.com/uiwjs/react-heat-map/workflows/Build%20&%20Deploy/badge.svg)](https://github.com/uiwjs/react-heat-map/actions)
 [![Issues](https://img.shields.io/github/issues/uiwjs/react-heat-map.svg)](https://github.com/uiwjs/react-heat-map/issues)
@@ -8,6 +9,7 @@ HeatMap 日历热图
 [![Release](https://img.shields.io/github/release/uiwjs/react-heat-map)](https://github.com/uiwjs/react-heat-map/releases)
 [![npm version](https://img.shields.io/npm/v/@uiw/react-heat-map.svg)](https://www.npmjs.com/package/@uiw/react-heat-map)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@uiw/react-heat-map)](https://bundlephobia.com/result?p=@uiw/react-heat-map)
+<!--rehype:style=text-align: center;-->
 
 React component create calendar heatmap to visualize time series data, a la github contribution graph.
 
@@ -114,7 +116,6 @@ npm run build
 
 The build is minified and the filenames include the hashes.
 Your app is ready to be deployed!
-
 
 ## License
 
