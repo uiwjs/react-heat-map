@@ -1,60 +1,61 @@
 import { Fragment, useState } from 'react';
+import Tooltip from '@uiw/react-tooltip';
 import HeatMap, { HeatMapValue } from '../';
 import styles from './App.module.less';
 
 const data1: HeatMapValue[] = [
-  { date: '2016/01/11', count: 2, content: ['一条消息来了！', '一条消息来了！'] },
+  { date: '2016/01/11', count: 2, content: '' },
   ...[...Array(17)].map((_, idx) => ({ date: `2016/02/${idx + 10}`, count: idx, content: '' })),
-  { date: '2016/03/02', count: 5, content: ['空的没有消息'] },
-  { date: '2016/03/04', count: 11, content: ['些放弃的人会这样想'] },
-  { date: '2016/03/14', count: 31, content: ['需要显示的数据2'] },
-  { date: '2016/03/16', count: 2, content: ['些放弃的人会这样想3'] },
-  { date: '2016/04/11', count: 2, content: ['一条消息来了！'] },
-  { date: '2016/05/01', count: 5, content: ['需要显示的数据'] },
-  { date: '2016/05/02', count: 5, content: ['空的没有消息'] },
-  { date: '2016/05/04', count: 11, content: ['些放弃的人会这样想'] },
-  { date: '2016/05/14', count: 31, content: ['需要显示的数据2'] },
-  { date: '2016/05/16', count: 2, content: ['些放弃的人会这样想3'] },
-  { date: '2016/05/17', count: 2, content: ['生活中根本就用不到吧？'] },
-  { date: '2016/05/18', count: 2, content: ['也许差别不是那么大吧？'] },
-  { date: '2016/05/19', count: 8, content: ['您可以直接在'] },
-  { date: '2016/05/20', count: 6, content: ['我有一个大胆的想法'] },
-  { date: '2016/05/21', count: 41, content: ['毕竟时间精力有限'] },
-  { date: '2016/05/22', count: 6, content: ['友谊赛事。'] },
-  { date: '2016/06/11', count: 2, content: ['一条消息来了！'] },
-  { date: '2016/07/01', count: 5, content: ['需要显示的数据'] },
-  { date: '2016/07/02', count: 5, content: ['空的没有消息'] },
-  { date: '2016/07/04', count: 11, content: ['些放弃的人会这样想'] },
-  { date: '2016/07/14', count: 31, content: ['需要显示的数据2'] },
-  { date: '2016/07/16', count: 2, content: ['些放弃的人会这样想3'] },
-  { date: '2016/07/17', count: 2, content: ['生活中根本就用不到吧？'] },
-  { date: '2016/07/18', count: 2, content: ['也许差别不是那么大吧？'] },
-  { date: '2016/07/19', count: 8, content: ['您可以直接在'] },
-  { date: '2016/07/20', count: 6, content: ['我有一个大胆的想法'] },
-  { date: '2016/07/21', count: 41, content: ['毕竟时间精力有限'] },
-  { date: '2016/07/22', count: 6, content: ['友谊赛事。'] },
+  { date: '2016/03/02', count: 5, content: '' },
+  { date: '2016/03/04', count: 11, content: '' },
+  { date: '2016/03/14', count: 31, content: '' },
+  { date: '2016/03/16', count: 2, content: '' },
+  { date: '2016/04/11', count: 2, content: '' },
+  { date: '2016/05/01', count: 5, content: '' },
+  { date: '2016/05/02', count: 5, content: '' },
+  { date: '2016/05/04', count: 11, content: '' },
+  { date: '2016/05/14', count: 31, content: '' },
+  { date: '2016/05/16', count: 2, content: '' },
+  { date: '2016/05/17', count: 2, content: '' },
+  { date: '2016/05/18', count: 2, content: '' },
+  { date: '2016/05/19', count: 8, content: '' },
+  { date: '2016/05/20', count: 6, content: '' },
+  { date: '2016/05/21', count: 41, content: '' },
+  { date: '2016/05/22', count: 6, content: '' },
+  { date: '2016/06/11', count: 2, content: '' },
+  { date: '2016/07/01', count: 5, content: '' },
+  { date: '2016/07/02', count: 5, content: '' },
+  { date: '2016/07/04', count: 11, content: '' },
+  { date: '2016/07/14', count: 31, content: '' },
+  { date: '2016/07/16', count: 2, content: '' },
+  { date: '2016/07/17', count: 2, content: '' },
+  { date: '2016/07/18', count: 2, content: '' },
+  { date: '2016/07/19', count: 8, content: '' },
+  { date: '2016/07/20', count: 6, content: '' },
+  { date: '2016/07/21', count: 41, content: '' },
+  { date: '2016/07/22', count: 6, content: '' },
   ...[...Array(17)].map((_, idx) => ({ date: `2016/08/${idx + 10}`, count: idx, content: '' })),
 ];
 const data2: HeatMapValue[] = [
-  { date: '2016/04/02', count: 5, content: ['空的没有消息'] },
-  { date: '2016/04/04', count: 11, content: ['些放弃的人会这样想'] },
-  { date: '2016/04/14', count: 31, content: ['需要显示的数据2'] },
-  { date: '2016/04/16', count: 2, content: ['些放弃的人会这样想3'] },
-  { date: '2016/04/17', count: 2, content: ['生活中根本就用不到吧？'] },
-  { date: '2016/04/18', count: 2, content: ['也许差别不是那么大吧？'] },
-  { date: '2016/04/19', count: 8, content: ['您可以直接在'] },
-  { date: '2016/04/11', count: 2, content: ['一条消息来了！'] },
-  { date: '2016/04/01', count: 5, content: ['需要显示的数据'] },
-  { date: '2016/04/02', count: 5, content: ['空的没有消息'] },
-  { date: '2016/04/04', count: 11, content: ['些放弃的人会这样想'] },
-  { date: '2016/04/14', count: 31, content: ['需要显示的数据2'] },
-  { date: '2016/04/16', count: 2, content: ['些放弃的人会这样想3'] },
-  { date: '2016/04/17', count: 2, content: ['生活中根本就用不到吧？'] },
-  { date: '2016/04/18', count: 2, content: ['也许差别不是那么大吧？'] },
-  { date: '2016/04/19', count: 8, content: ['您可以直接在'] },
-  { date: '2016/04/20', count: 6, content: ['我有一个大胆的想法'] },
-  { date: '2016/04/21', count: 41, content: ['毕竟时间精力有限'] },
-  { date: '2016/04/22', count: 6, content: ['友谊赛事。'] },
+  { date: '2016/04/02', count: 5, content: '' },
+  { date: '2016/04/04', count: 11, content: '' },
+  { date: '2016/04/14', count: 31, content: '' },
+  { date: '2016/04/16', count: 2, content: '' },
+  { date: '2016/04/17', count: 2, content: '' },
+  { date: '2016/04/18', count: 2, content: '' },
+  { date: '2016/04/19', count: 8, content: '' },
+  { date: '2016/04/11', count: 2, content: '' },
+  { date: '2016/04/01', count: 5, content: '' },
+  { date: '2016/04/02', count: 5, content: '' },
+  { date: '2016/04/04', count: 11, content: '' },
+  { date: '2016/04/14', count: 31, content: '' },
+  { date: '2016/04/16', count: 2, content: '' },
+  { date: '2016/04/17', count: 2, content: '' },
+  { date: '2016/04/18', count: 2, content: '' },
+  { date: '2016/04/19', count: 8, content: '' },
+  { date: '2016/04/20', count: 6, content: '' },
+  { date: '2016/04/21', count: 41, content: '' },
+  { date: '2016/04/22', count: 6, content: '' },
 ];
 
 const darkColor = { 0: 'rgb(255 255 255 / 25%)', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#196127' };
@@ -91,6 +92,14 @@ export default function Example() {
             onClick: (e) => {
               setSelectaDate((e.target as any).dataset.date);
             },
+          }}
+          rectRender={(props, data) => {
+            // if (!data.count) return <rect {...props} />;
+            return (
+              <Tooltip key={data.index} placement="top" content={`count: ${data.count || 0}`}>
+                <rect {...props} />
+              </Tooltip>
+            );
           }}
           // rectRender={({
           //   rectSize,

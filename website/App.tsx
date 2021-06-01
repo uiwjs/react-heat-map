@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import GitHubCorners from '@uiw/react-github-corners';
 import MarkdownPreview from '@uiw/react-markdown-preview';
+import Tooltip from '@uiw/react-tooltip';
 import rehypeAttr from 'rehype-attr';
 import Code, { CodeProps } from './Code';
 import HeatMap from '../';
@@ -50,7 +51,7 @@ const App: React.FC = () => {
                 <Code
                   {...conf}
                   code={getCodeStr(node.children)}
-                  dependencies={{ useRef, useEffect, useState, HeatMap }}
+                  dependencies={{ useRef, useEffect, useState, HeatMap, Tooltip }}
                   language={(props.className || '').replace(/^language-/, '')}
                 />
               );

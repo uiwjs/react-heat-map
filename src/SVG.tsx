@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { LablesWeek } from './LablesWeek';
 import { LablesMonth } from './LablesMonth';
-import { RectDay, RectDayDefaultProps } from './RectDay';
+import { Rect } from './Rect';
 import { formatData, getDateToString, existColor, numberSort, isValidDate, oneDayTime } from './utils';
 import Legend, { LegendProps } from './Legend';
 
@@ -11,7 +11,7 @@ export type HeatMapValue = {
   count: number;
 };
 
-export type RectDayElement<T = SVGRectElement> = RectDayDefaultProps & React.SVGProps<T>;
+export type RectProps<T = SVGRectElement> = React.SVGProps<T>;
 
 export interface SVGProps extends React.SVGProps<SVGSVGElement> {
   startDate?: Date;
@@ -19,11 +19,15 @@ export interface SVGProps extends React.SVGProps<SVGSVGElement> {
   rectSize?: number;
   legendCellSize?: number;
   space?: number;
-  rectProps?: RectDayElement | RectDayDefaultProps;
+  rectProps?: RectProps;
   legendRender?: LegendProps['legendRender'];
   rectRender?: <E = SVGRectElement>(
-    data: E & RectDayDefaultProps & { fill?: string },
-    valueItem?: HeatMapValue,
+    data: E & {},
+    valueItem: HeatMapValue & {
+      column: number;
+      row: number;
+      index: number;
+    },
   ) => React.ReactElement | void;
   value?: Array<HeatMapValue>;
   weekLables?: string[] | false;
@@ -101,32 +105,47 @@ export default function SVG(props: SVGProps) {
           return (
             <g key={idx} data-column={idx}>
               {[...Array(7)].map((_, cidx) => {
-                const dayProps: RectDayElement = {
+                const dayProps: RectProps = {
                   ...rectProps,
-                  rectSize,
-                  space,
                   key: cidx,
-                  row: cidx,
-                  column: idx,
                   fill: '#EBEDF0',
+                  width: rectSize,
+                  height: rectSize,
+                  x: idx * (rectSize + space),
+                  y: (rectSize + space) * cidx,
                 };
                 const currentDate = new Date(initStartDate.getTime() + oneDayTime * (idx * 7 + cidx));
-                dayProps.date = getDateToString(currentDate);
+                const date = getDateToString(currentDate);
+                const dataProps = {
+                  ...data[date],
+                  row: cidx,
+                  column: idx,
+                  index: idx * 7 + cidx,
+                };
+
                 if (endDate instanceof Date && currentDate.getTime() > endDate.getTime()) {
                   return null;
                 }
-                if (dayProps.date && data[dayProps.date] && panelColors && Object.keys(panelColors).length > 0) {
-                  dayProps.fill = existColor(data[dayProps.date].count || 0, nums, panelColors);
+                if (date && data[date] && panelColors && Object.keys(panelColors).length > 0) {
+                  dayProps.fill = existColor(data[date].count || 0, nums, panelColors);
                 } else if (panelColors && panelColors[0]) {
                   dayProps.fill = panelColors[0];
                 }
                 if (rectRender && typeof rectRender === 'function') {
-                  const elm = rectRender(dayProps, data[dayProps.date]);
+                  const elm = rectRender(dayProps, dataProps);
                   if (elm && React.isValidElement(elm)) {
                     return elm;
                   }
                 }
-                return <RectDay {...dayProps} />;
+                return (
+                  <Rect
+                    {...dayProps}
+                    data-date={date}
+                    data-index={dataProps.index}
+                    data-row={dataProps.row}
+                    data-column={dataProps.column}
+                  />
+                );
               })}
             </g>
           );

@@ -82,6 +82,7 @@ const Demo = () => {
 };
 ReactDOM.render(<Demo />, _mount_);
 ```
+
 ## Set Rect Style
 
 Set the radius of the rect.
@@ -93,8 +94,8 @@ import HeatMap from '@uiw/react-heat-map';
 
 const value = [
   { date: '2016/01/11', count:2 },
-  ...[...Array(17)].map((_, idx) => ({ date: `2016/01/${idx + 10}`, count: idx, content: '' })),
-  ...[...Array(17)].map((_, idx) => ({ date: `2016/02/${idx + 10}`, count: idx, content: '' })),
+  ...[...Array(17)].map((_, idx) => ({ date: `2016/01/${idx + 10}`, count: idx })),
+  ...[...Array(17)].map((_, idx) => ({ date: `2016/02/${idx + 10}`, count: idx })),
   { date: '2016/04/12', count:2 },
   { date: '2016/05/01', count:5 },
   { date: '2016/05/02', count:5 },
@@ -123,6 +124,48 @@ const Demo = () => {
 ReactDOM.render(<Demo />, _mount_);
 ```
 
+## Tooltip
+
+A simple text popup tip.
+
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
+```jsx
+import ReactDOM from 'react-dom';
+import Tooltip from '@uiw/react-tooltip';
+import HeatMap from '@uiw/react-heat-map';
+
+const value = [
+  { date: '2016/01/11', count:2 },
+  ...[...Array(17)].map((_, idx) => ({ date: `2016/01/${idx + 10}`, count: idx, })),
+  ...[...Array(17)].map((_, idx) => ({ date: `2016/02/${idx + 10}`, count: idx, })),
+  { date: '2016/04/12', count:2 },
+  { date: '2016/05/01', count:5 },
+  { date: '2016/05/02', count:5 },
+  { date: '2016/05/03', count:1 },
+  { date: '2016/05/04', count:11 },
+  { date: '2016/05/08', count:32 },
+];
+
+const Demo = () => {
+  return (
+    <HeatMap
+      value={value}
+      width={600}
+      startDate={new Date('2016/01/01')}
+      rectRender={(props, data) => {
+        // if (!data.count) return <rect {...props} />;
+        return (
+          <Tooltip key={props.key} placement="top" content={`count: ${data.count || 0}`}>
+            <rect {...props} />
+          </Tooltip>
+        );
+      }}
+    />
+  )
+};
+ReactDOM.render(<Demo />, _mount_);
+```
+
 ## Props
 
 | Property | Description | Type | Default |
@@ -137,7 +180,7 @@ ReactDOM.render(<Demo />, _mount_);
 | weekLables | Week display | string[] | `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']` | 
 | monthLables | Month display | string[] | `['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']` | 
 | panelColors | Backgroud color of active colors | `Record<number, string>` | `{ 0: '#EBEDF0', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#196127' }` | 
-| rectRender | Single `day` block re-render | `(data: SVGRectElement & RectDayDefaultProps & { fill?: string }, valueItem?: HeatMapValue) => React.ReactNode` | - |
+| rectRender | Single `day` block re-render | `<E = SVGRectElement>(data: E, valueItem: HeatMapValue & { column: number, row: number, index: number }) => React.ReactElement` | - |
 | legendRender | Single `legend` block re-render | `(props: React.SVGProps<SVGRectElement>) => React.ReactNode` | - |
 
 ## Development
