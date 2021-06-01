@@ -13,8 +13,8 @@
     "static/js/5.8b5b32d7.chunk.js": "/react-heat-map/static/js/5.8b5b32d7.chunk.js",
     "static/js/5.8b5b32d7.chunk.js.map": "/react-heat-map/static/js/5.8b5b32d7.chunk.js.map",
     "main.css": "/react-heat-map/static/css/main.de4e6299.chunk.css",
-    "main.js": "/react-heat-map/static/js/main.e7d4fda8.chunk.js",
-    "main.js.map": "/react-heat-map/static/js/main.e7d4fda8.chunk.js.map",
+    "main.js": "/react-heat-map/static/js/main.ae949b4a.chunk.js",
+    "main.js.map": "/react-heat-map/static/js/main.ae949b4a.chunk.js.map",
     "runtime-main.js": "/react-heat-map/static/js/runtime-main.f29f9c6c.js",
     "runtime-main.js.map": "/react-heat-map/static/js/runtime-main.f29f9c6c.js.map",
     "static/css/8.c7aa79bf.chunk.css": "/react-heat-map/static/css/8.c7aa79bf.chunk.css",
@@ -263,6 +263,6 @@
     "static/css/8.c7aa79bf.chunk.css",
     "static/js/8.99a12173.chunk.js",
     "static/css/main.de4e6299.chunk.css",
-    "static/js/main.e7d4fda8.chunk.js"
+    "static/js/main.ae949b4a.chunk.js"
   ]
 }
