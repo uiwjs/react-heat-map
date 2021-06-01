@@ -92,7 +92,7 @@ export default function Example() {
               setSelectaDate((e.target as any).dataset.date);
             },
           }}
-          // renderRect={({
+          // rectRender={({
           //   rectSize,
           //   column,
           //   space,

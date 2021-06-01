@@ -21,7 +21,7 @@ export interface SVGProps extends React.SVGProps<SVGSVGElement> {
   space?: number;
   rectProps?: RectDayElement | RectDayDefaultProps;
   legendRender?: LegendProps['legendRender'];
-  renderRect?: <E = SVGRectElement>(
+  rectRender?: <E = SVGRectElement>(
     data: E & RectDayDefaultProps & { fill?: string },
     valueItem?: HeatMapValue,
   ) => React.ReactElement | void;
@@ -39,7 +39,7 @@ export default function SVG(props: SVGProps) {
     startDate = new Date(),
     endDate,
     rectProps,
-    renderRect,
+    rectRender,
     legendRender,
     value = [],
     weekLables = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
@@ -120,8 +120,8 @@ export default function SVG(props: SVGProps) {
                 } else if (panelColors && panelColors[0]) {
                   dayProps.fill = panelColors[0];
                 }
-                if (renderRect && typeof renderRect === 'function') {
-                  const elm = renderRect(dayProps, data[dayProps.date]);
+                if (rectRender && typeof rectRender === 'function') {
+                  const elm = rectRender(dayProps, data[dayProps.date]);
                   if (elm && React.isValidElement(elm)) {
                     return elm;
                   }

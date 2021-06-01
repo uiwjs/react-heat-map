@@ -137,7 +137,7 @@ ReactDOM.render(<Demo />, _mount_);
 | weekLables | Week display | string[] | `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']` | 
 | monthLables | Month display | string[] | `['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']` | 
 | panelColors | Backgroud color of active colors | `Record<number, string>` | `{ 0: '#EBEDF0', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#196127' }` | 
-| renderRect | Single `day` block re-render | `(data: SVGRectElement & RectDayDefaultProps & { fill?: string }, valueItem?: HeatMapValue) => React.ReactNode` | - |
+| rectRender | Single `day` block re-render | `(data: SVGRectElement & RectDayDefaultProps & { fill?: string }, valueItem?: HeatMapValue) => React.ReactNode` | - |
 | legendRender | Single `legend` block re-render | `(props: React.SVGProps<SVGRectElement>) => React.ReactNode` | - |
 
 ## Development
