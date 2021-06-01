@@ -7,6 +7,7 @@ export interface LegendProps extends RectProps {
   rectSize: SVGProps['rectSize'];
   leftPad: number;
   legendCellSize: number;
+  legendRender?: (props: RectProps) => React.ReactElement | void;
   topPad: number;
   space: number;
 }
@@ -17,25 +18,28 @@ export default function Legend({
   space = 0,
   rectSize = 0,
   legendCellSize = 0,
+  legendRender,
   ...props
 }: LegendProps) {
   let size = legendCellSize || rectSize;
   return useMemo(
     () => (
       <Fragment>
-        {Object.keys(panelColors || {}).map((num, key) => (
-          <Rect
-            key={key}
-            {...props}
-            x={(size + 1) * key + leftPad}
-            y={topPad + rectSize * 8 + 6}
-            fill={panelColors![Number(num)]}
-            width={size}
-            height={size}
-          />
-        ))}
+        {Object.keys(panelColors || {}).map((num, key) => {
+          const rectProps = {
+            ...props,
+            key,
+            x: (size + 1) * key + leftPad,
+            y: topPad + rectSize * 8 + 6,
+            fill: panelColors![Number(num)],
+            width: size,
+            height: size,
+          };
+          if (legendRender) return legendRender(rectProps);
+          return <Rect {...rectProps} />;
+        })}
       </Fragment>
     ),
-    [panelColors, props, rectSize, leftPad, topPad, size],
+    [panelColors, props, size, leftPad, topPad, rectSize, legendRender],
   );
 }

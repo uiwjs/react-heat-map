@@ -3,7 +3,7 @@ import { LablesWeek } from './LablesWeek';
 import { LablesMonth } from './LablesMonth';
 import { RectDay, RectDayDefaultProps } from './RectDay';
 import { formatData, getDateToString, existColor, numberSort, isValidDate, oneDayTime } from './utils';
-import Legend from './Legend';
+import Legend, { LegendProps } from './Legend';
 
 export type HeatMapValue = {
   date: string;
@@ -20,6 +20,7 @@ export interface SVGProps extends React.SVGProps<SVGSVGElement> {
   legendCellSize?: number;
   space?: number;
   rectProps?: RectDayElement | RectDayDefaultProps;
+  legendRender?: LegendProps['legendRender'];
   renderRect?: <E = SVGRectElement>(
     data: E & RectDayDefaultProps & { fill?: string },
     valueItem?: HeatMapValue,
@@ -39,6 +40,7 @@ export default function SVG(props: SVGProps) {
     endDate,
     rectProps,
     renderRect,
+    legendRender,
     value = [],
     weekLables = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     monthLables = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -76,6 +78,7 @@ export default function SVG(props: SVGProps) {
     <svg ref={svgRef} {...other}>
       {legendCellSize !== 0 && (
         <Legend
+          legendRender={legendRender}
           panelColors={panelColors}
           rectSize={rectSize}
           legendCellSize={legendCellSize}

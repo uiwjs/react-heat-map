@@ -22,24 +22,25 @@ npm install @uiw/react-heat-map --save
 
 ## Basic Usage
 
-Basic usage example, Please pay warning to the time setting. ⚠️ Example: `2016/01/11`<!--rehype:style=color: green;--> -> ~~`2016-01-11`~~<!--rehype:style=color: red;-->, Support `Safari`
+Basic usage example, Please pay warning to the time setting. ⚠️ Example: `2016/01/11`<!--rehype:style=color: green;--> -> ~~`2016-01-11`<!--rehype:style=color: red;background-color: #ffd8d8;-->~~, Support `Safari`<!--rehype:style=background-color: #87d499;-->
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import HeatMap from '@uiw/react-heat-map';
 
+const value = [
+  { date: '2016/01/11', count: 2 },
+  { date: '2016/01/12', count: 20 },
+  { date: '2016/01/13', count: 10 },
+  ...[...Array(17)].map((_, idx) => ({ date: `2016/02/${idx + 10}`, count: idx, content: '' })),
+  { date: '2016/04/11', count: 2 },
+  { date: '2016/05/01', count: 5 },
+  { date: '2016/05/02', count: 5 },
+  { date: '2016/05/04', count: 11 },
+];
+
 const Demo = () => {
-  const value = [
-    { date: '2016/01/11', count: 2 },
-    { date: '2016/01/12', count: 20 },
-    { date: '2016/01/13', count: 10 },
-    ...[...Array(17)].map((_, idx) => ({ date: `2016/02/${idx + 10}`, count: idx, content: '' })),
-    { date: '2016/04/11', count: 2 },
-    { date: '2016/05/01', count: 5 },
-    { date: '2016/05/02', count: 5 },
-    { date: '2016/05/04', count: 11 },
-  ];
   return (
     <div>
       <HeatMap value={value} startDate={new Date('2016/01/01')} />
@@ -58,16 +59,17 @@ Set the theme color style.
 import ReactDOM from 'react-dom';
 import HeatMap from '@uiw/react-heat-map';
 
+const value = [
+  { date: '2016/01/11', count:2 },
+  { date: '2016/04/12', count:2 },
+  { date: '2016/05/01', count:5 },
+  { date: '2016/05/02', count:5 },
+  { date: '2016/05/03', count:1 },
+  { date: '2016/05/04', count:11 },
+  { date: '2016/05/08', count:32 },
+];
+
 const Demo = () => {
-  const value = [
-    { date: '2016/01/11', count:2 },
-    { date: '2016/04/12', count:2 },
-    { date: '2016/05/01', count:5 },
-    { date: '2016/05/02', count:5 },
-    { date: '2016/05/03', count:1 },
-    { date: '2016/05/04', count:11 },
-    { date: '2016/05/08', count:32 },
-  ];
   return (
     <HeatMap
       value={value}
@@ -89,19 +91,20 @@ Set the radius of the rect.
 import ReactDOM from 'react-dom';
 import HeatMap from '@uiw/react-heat-map';
 
+const value = [
+  { date: '2016/01/11', count:2 },
+  ...[...Array(17)].map((_, idx) => ({ date: `2016/01/${idx + 10}`, count: idx, content: '' })),
+  ...[...Array(17)].map((_, idx) => ({ date: `2016/02/${idx + 10}`, count: idx, content: '' })),
+  { date: '2016/04/12', count:2 },
+  { date: '2016/05/01', count:5 },
+  { date: '2016/05/02', count:5 },
+  { date: '2016/05/03', count:1 },
+  { date: '2016/05/04', count:11 },
+  { date: '2016/05/08', count:32 },
+];
+
 const Demo = () => {
   const [range, setRange] = useState(5)
-  const value = [
-    { date: '2016/01/11', count:2 },
-    ...[...Array(17)].map((_, idx) => ({ date: `2016/01/${idx + 10}`, count: idx, content: '' })),
-    ...[...Array(17)].map((_, idx) => ({ date: `2016/02/${idx + 10}`, count: idx, content: '' })),
-    { date: '2016/04/12', count:2 },
-    { date: '2016/05/01', count:5 },
-    { date: '2016/05/02', count:5 },
-    { date: '2016/05/03', count:1 },
-    { date: '2016/05/04', count:11 },
-    { date: '2016/05/08', count:32 },
-  ];
   return (
     <div>
       <input type="range" min="0" max="5" step="0.1" value={range} onChange={(e) => setRange(e.target.value)} /> {range}
@@ -109,6 +112,7 @@ const Demo = () => {
         value={value}
         width={600}
         startDate={new Date('2016/01/01')}
+        legendRender={(props) => <rect {...props} y={props.y + 10} rx={range} />}
         rectProps={{
           rx: range
         }}
@@ -133,7 +137,8 @@ ReactDOM.render(<Demo />, _mount_);
 | weekLables | Week display | string[] | `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']` | 
 | monthLables | Month display | string[] | `['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']` | 
 | panelColors | Backgroud color of active colors | `Record<number, string>` | `{ 0: '#EBEDF0', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#196127' }` | 
-| renderRect | Single block re-render | `(data: SVGRectElement & RectDayDefaultProps & { fill?: string }, valueItem?: HeatMapValue) => React.ReactNode` | - |
+| renderRect | Single `day` block re-render | `(data: SVGRectElement & RectDayDefaultProps & { fill?: string }, valueItem?: HeatMapValue) => React.ReactNode` | - |
+| legendRender | Single `legend` block re-render | `(props: React.SVGProps<SVGRectElement>) => React.ReactNode` | - |
 
 ## Development
 

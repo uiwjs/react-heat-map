@@ -1,5 +1,5 @@
 import { Fragment, useState } from 'react';
-import HeatMap, { RectDayElement, HeatMapValue } from '../';
+import HeatMap, { HeatMapValue } from '../';
 import styles from './App.module.less';
 
 const data1: HeatMapValue[] = [
@@ -87,33 +87,34 @@ export default function Example() {
           endDate={enableEndDate ? new Date('2016/6/01') : undefined}
           value={value}
           rectProps={{
+            rx: !enableCircle ? 0 : 5,
             onClick: (e) => {
               setSelectaDate((e.target as any).dataset.date);
             },
           }}
-          renderRect={({
-            rectSize,
-            column,
-            space,
-            row,
-            fill,
-            date,
-            rx,
-            ...props
-          }: RectDayElement<SVGCircleElement>) => {
-            if (!enableCircle) return undefined;
-            return (
-              <circle
-                {...props}
-                fill={fill}
-                r={rectSize! / 2}
-                cx={column! * (rectSize! + space!) + 4}
-                cy={(rectSize! + space!) * row! + 5}
-                width={rectSize}
-                height={rectSize}
-              />
-            );
-          }}
+          // renderRect={({
+          //   rectSize,
+          //   column,
+          //   space,
+          //   row,
+          //   fill,
+          //   date,
+          //   rx,
+          //   ...props
+          // }: RectDayElement<SVGCircleElement>) => {
+          //   if (!enableCircle) return undefined;
+          //   return (
+          //     <circle
+          //       {...props}
+          //       fill={fill}
+          //       r={rectSize! / 2}
+          //       cx={column! * (rectSize! + space!) + 4}
+          //       cy={(rectSize! + space!) * row! + 5}
+          //       width={rectSize}
+          //       height={rectSize}
+          //     />
+          //   );
+          // }}
         />
       </div>
       <div style={{ width: 663, margin: '0 auto' }} className={styles.tools}>
