@@ -180,7 +180,7 @@ ReactDOM.render(<Demo />, _mount_);
 | weekLables | Week display | string[] | `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']` | 
 | monthLables | Month display | string[] | `['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']` | 
 | panelColors | Backgroud color of active colors | `Record<number, string>` | `{ 0: '#EBEDF0', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#196127' }` | 
-| rectRender | Single `day` block re-render | `<E = SVGRectElement>(data: E, valueItem: HeatMapValue & { column: number, row: number, index: number }) => React.ReactElement` | - |
+| rectRender | Single `day` block re-render | `<E = SVGRectElement>(data: E & { key: number }, valueItem: HeatMapValue & { column: number, row: number, index: number }) => React.ReactElement` | - |
 | legendRender | Single `legend` block re-render | `(props: React.SVGProps<SVGRectElement>) => React.ReactNode` | - |
 
 ## Development

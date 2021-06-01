@@ -22,7 +22,7 @@ export interface SVGProps extends React.SVGProps<SVGSVGElement> {
   rectProps?: RectProps;
   legendRender?: LegendProps['legendRender'];
   rectRender?: <E = SVGRectElement>(
-    data: E & {},
+    data: E & { key: number },
     valueItem: HeatMapValue & {
       column: number;
       row: number;
@@ -132,7 +132,7 @@ export default function SVG(props: SVGProps) {
                   dayProps.fill = panelColors[0];
                 }
                 if (rectRender && typeof rectRender === 'function') {
-                  const elm = rectRender(dayProps, dataProps);
+                  const elm = rectRender({ ...dayProps, key: cidx }, dataProps);
                   if (elm && React.isValidElement(elm)) {
                     return elm;
                   }

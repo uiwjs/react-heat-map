@@ -96,7 +96,7 @@ export default function Example() {
           rectRender={(props, data) => {
             // if (!data.count) return <rect {...props} />;
             return (
-              <Tooltip key={data.index} placement="top" content={`count: ${data.count || 0}`}>
+              <Tooltip key={props.key} placement="top" content={`count: ${data.count || 0}`}>
                 <rect {...props} />
               </Tooltip>
             );
