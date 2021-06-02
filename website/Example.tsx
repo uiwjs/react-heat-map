@@ -93,6 +93,7 @@ export default function Example() {
               setSelectaDate((e.target as any).dataset.date);
             },
           }}
+          legendRender={(props) => <rect {...props} rx={!enableCircle ? 0 : 5} />}
           rectRender={(props, data) => {
             // if (!data.count) return <rect {...props} />;
             return (
