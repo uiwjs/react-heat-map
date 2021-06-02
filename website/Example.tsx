@@ -127,7 +127,7 @@ export default function Example() {
         />
       </div>
       <div style={{ width: 663, margin: '0 auto' }} className={styles.tools}>
-        <div style={{ paddingLeft: 10 }}>
+        <div style={{ paddingLeft: 10, paddingBottom: 20 }}>
           <button onClick={() => setValue(data1)}>Value 1</button>
           <button onClick={() => setValue(data2)}>Value 2</button>
           <span>{selectaDate}</span>
@@ -146,7 +146,7 @@ export default function Example() {
           {enableCircle ? 'Circle' : 'Rect'}
         </label>
 
-        <label>
+        <label style={{ marginTop: 15 }}>
           <input
             type="radio"
             name="weekLables"
@@ -174,7 +174,7 @@ export default function Example() {
           weekLables = {JSON.stringify(['日', '一', '', '三', '', '五', '六'])}
         </label>
 
-        <label>
+        <label style={{ marginTop: 15 }}>
           <input
             type="radio"
             name="monthLables"
@@ -205,7 +205,7 @@ export default function Example() {
           monthLables = {JSON.stringify(['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'])}
         </label>
 
-        <div style={{ display: 'flex' }}>
+        <div style={{ display: 'flex', marginTop: 10 }}>
           <label>
             <input type="radio" name="rectSize" checked={rectSize === 11} onChange={(e) => setRectSize(11)} />
             rectSize = 11
@@ -220,7 +220,7 @@ export default function Example() {
           </label>
         </div>
 
-        <div style={{ display: 'flex' }}>
+        <div style={{ display: 'flex', marginTop: 16 }}>
           <label>
             <input
               type="number"
