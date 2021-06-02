@@ -76,7 +76,14 @@ const Demo = () => {
       width={600}
       style={{ color: '#ad001d' }}
       startDate={new Date('2016/01/01')}
-      panelColors={{ 0: '#f4decd', 2: '#e4b293', 4: '#d48462', 10: '#c2533a', 20: '#ad001d' }}
+      panelColors={{
+        0: '#f4decd',
+        2: '#e4b293',
+        4: '#d48462',
+        10: '#c2533a',
+        20: '#ad001d',
+        30: '#000',
+      }}
     />
   )
 };
