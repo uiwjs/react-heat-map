@@ -118,6 +118,7 @@ export default function SVG(props: SVGProps) {
                 const date = getDateToString(currentDate);
                 const dataProps = {
                   ...data[date],
+                  date: date,
                   row: cidx,
                   column: idx,
                   index: idx * 7 + cidx,
