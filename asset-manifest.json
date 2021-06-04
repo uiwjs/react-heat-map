@@ -18,8 +18,8 @@
     "runtime-main.js": "/react-heat-map/static/js/runtime-main.e7bdd0f8.js",
     "runtime-main.js.map": "/react-heat-map/static/js/runtime-main.e7bdd0f8.js.map",
     "static/css/8.2c0de944.chunk.css": "/react-heat-map/static/css/8.2c0de944.chunk.css",
-    "static/js/8.10be3982.chunk.js": "/react-heat-map/static/js/8.10be3982.chunk.js",
-    "static/js/8.10be3982.chunk.js.map": "/react-heat-map/static/js/8.10be3982.chunk.js.map",
+    "static/js/8.5ef2cf03.chunk.js": "/react-heat-map/static/js/8.5ef2cf03.chunk.js",
+    "static/js/8.5ef2cf03.chunk.js.map": "/react-heat-map/static/js/8.5ef2cf03.chunk.js.map",
     "static/js/9.edb6ada4.chunk.js": "/react-heat-map/static/js/9.edb6ada4.chunk.js",
     "static/js/9.edb6ada4.chunk.js.map": "/react-heat-map/static/js/9.edb6ada4.chunk.js.map",
     "static/js/10.37d6a0d0.chunk.js": "/react-heat-map/static/js/10.37d6a0d0.chunk.js",
@@ -254,14 +254,14 @@
     "static/css/8.2c0de944.chunk.css.map": "/react-heat-map/static/css/8.2c0de944.chunk.css.map",
     "static/css/main.de4e6299.chunk.css.map": "/react-heat-map/static/css/main.de4e6299.chunk.css.map",
     "static/js/116.6d359255.chunk.js.LICENSE.txt": "/react-heat-map/static/js/116.6d359255.chunk.js.LICENSE.txt",
-    "static/js/8.10be3982.chunk.js.LICENSE.txt": "/react-heat-map/static/js/8.10be3982.chunk.js.LICENSE.txt",
+    "static/js/8.5ef2cf03.chunk.js.LICENSE.txt": "/react-heat-map/static/js/8.5ef2cf03.chunk.js.LICENSE.txt",
     "static/media/escape-regexp.cjs": "/react-heat-map/static/media/escape-regexp.04fafb46.cjs",
     "static/media/logo.3931a054.svg": "/react-heat-map/static/media/logo.3931a054.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.e7bdd0f8.js",
     "static/css/8.2c0de944.chunk.css",
-    "static/js/8.10be3982.chunk.js",
+    "static/js/8.5ef2cf03.chunk.js",
     "static/css/main.de4e6299.chunk.css",
     "static/js/main.6fc17113.chunk.js"
   ]
