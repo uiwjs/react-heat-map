@@ -62,7 +62,7 @@
     "@types/react": "17.0.8",
     "@types/react-dom": "17.0.6",
     "@uiw/react-code-preview": "1.11.13",
-    "@uiw/react-github-corners": "1.2.0",
+    "@uiw/react-github-corners": "1.4.0",
     "@uiw/react-markdown-preview": "3.1.1",
     "@uiw/react-tooltip": "4.7.16",
     "@uiw/reset.css": "1.0.4",
