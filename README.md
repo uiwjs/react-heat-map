@@ -22,7 +22,9 @@ npm install @uiw/react-heat-map --save
 
 ## Basic Usage
 
-Basic usage example, Please pay warning to the time setting. ⚠️ Example: `2016/01/11`<!--rehype:style=color: green;--> -> ~~`2016-01-11`<!--rehype:style=color: red;background-color: #ffd8d8;-->~~, Support `Safari`<!--rehype:style=background-color: #87d499;-->
+Basic usage example, Please pay warning to the time setting.
+
+⚠️ Example: ~~`2016-01-11`<!--rehype:style=color: red;background-color: #ffd8d8;-->~~ -> `2016/01/11`<!--rehype:style=color: green;background: #a7e4b5;-->, Support `Safari`<!--rehype:style=background-color: #87d499;-->
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
