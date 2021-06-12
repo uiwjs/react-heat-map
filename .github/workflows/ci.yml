@@ -19,16 +19,19 @@ jobs:
     - run: npm run build
     - run: npm run doc
 
+    - run: npm install @jsdevtools/npm-publish -g
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./package.json
+
     - name: Create Tag
       id: create_tag
-      uses: jaywcjlove/create-tag-action@v1.1.10
+      uses: jaywcjlove/create-tag-action@v1.2.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         package-path: ./package.json
 
     - name: Generate Changelog
       id: changelog
-      uses: jaywcjlove/changelog-generator@v1.3.10
+      uses: jaywcjlove/changelog-generator@v1.4.1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         head-ref: ${{steps.create_tag.outputs.version}}
