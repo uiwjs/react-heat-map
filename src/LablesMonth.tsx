@@ -19,7 +19,7 @@ export const LablesMonth = ({
   startDate,
 }: LablesMonthProps) => {
   const data = useMemo(() => {
-    if (monthLables === false) return [];
+    if (monthLables === false || colNum < 1) return [];
     return [...Array(colNum * 7)]
       .map((_, idx) => {
         if ((idx / 7) % 1 === 0) {

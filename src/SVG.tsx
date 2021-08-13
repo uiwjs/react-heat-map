@@ -101,56 +101,57 @@ export default function SVG(props: SVGProps) {
         startDate={initStartDate}
       />
       <g transform={`translate(${leftPad}, ${topPad})`}>
-        {[...Array(gridNum)].map((_, idx) => {
-          return (
-            <g key={idx} data-column={idx}>
-              {[...Array(7)].map((_, cidx) => {
-                const dayProps: RectProps = {
-                  ...rectProps,
-                  key: cidx,
-                  fill: '#EBEDF0',
-                  width: rectSize,
-                  height: rectSize,
-                  x: idx * (rectSize + space),
-                  y: (rectSize + space) * cidx,
-                };
-                const currentDate = new Date(initStartDate.getTime() + oneDayTime * (idx * 7 + cidx));
-                const date = getDateToString(currentDate);
-                const dataProps = {
-                  ...data[date],
-                  date: date,
-                  row: cidx,
-                  column: idx,
-                  index: idx * 7 + cidx,
-                };
+        {gridNum > 0 &&
+          [...Array(gridNum)].map((_, idx) => {
+            return (
+              <g key={idx} data-column={idx}>
+                {[...Array(7)].map((_, cidx) => {
+                  const dayProps: RectProps = {
+                    ...rectProps,
+                    key: cidx,
+                    fill: '#EBEDF0',
+                    width: rectSize,
+                    height: rectSize,
+                    x: idx * (rectSize + space),
+                    y: (rectSize + space) * cidx,
+                  };
+                  const currentDate = new Date(initStartDate.getTime() + oneDayTime * (idx * 7 + cidx));
+                  const date = getDateToString(currentDate);
+                  const dataProps = {
+                    ...data[date],
+                    date: date,
+                    row: cidx,
+                    column: idx,
+                    index: idx * 7 + cidx,
+                  };
 
-                if (endDate instanceof Date && currentDate.getTime() > endDate.getTime()) {
-                  return null;
-                }
-                if (date && data[date] && panelColors && Object.keys(panelColors).length > 0) {
-                  dayProps.fill = existColor(data[date].count || 0, nums, panelColors);
-                } else if (panelColors && panelColors[0]) {
-                  dayProps.fill = panelColors[0];
-                }
-                if (rectRender && typeof rectRender === 'function') {
-                  const elm = rectRender({ ...dayProps, key: cidx }, dataProps);
-                  if (elm && React.isValidElement(elm)) {
-                    return elm;
+                  if (endDate instanceof Date && currentDate.getTime() > endDate.getTime()) {
+                    return null;
                   }
-                }
-                return (
-                  <Rect
-                    {...dayProps}
-                    data-date={date}
-                    data-index={dataProps.index}
-                    data-row={dataProps.row}
-                    data-column={dataProps.column}
-                  />
-                );
-              })}
-            </g>
-          );
-        })}
+                  if (date && data[date] && panelColors && Object.keys(panelColors).length > 0) {
+                    dayProps.fill = existColor(data[date].count || 0, nums, panelColors);
+                  } else if (panelColors && panelColors[0]) {
+                    dayProps.fill = panelColors[0];
+                  }
+                  if (rectRender && typeof rectRender === 'function') {
+                    const elm = rectRender({ ...dayProps, key: cidx }, dataProps);
+                    if (elm && React.isValidElement(elm)) {
+                      return elm;
+                    }
+                  }
+                  return (
+                    <Rect
+                      {...dayProps}
+                      data-date={date}
+                      data-index={dataProps.index}
+                      data-row={dataProps.row}
+                      data-column={dataProps.column}
+                    />
+                  );
+                })}
+              </g>
+            );
+          })}
       </g>
     </svg>
   );
