@@ -36,14 +36,16 @@ export default function Code({ language, dependencies, codePen, codeSandbox, ...
           content: {
             name: 'react-heat-map-example',
             description: `react-heat-map - example`,
+            devDependencies: {
+              '@kkt/less-modules': '6.11.0',
+              kkt: '6.11.0',
+              typescript: '4.1.3',
+            },
             dependencies: {
               react: 'latest',
               'react-dom': 'latest',
-              'react-heat-map': 'latest',
-
-              '@kkt/less-modules': '6.9.0',
-              kkt: '6.9.0',
-              typescript: '4.1.3',
+              '@uiw/react-tooltip': '4.9.4',
+              '@uiw/react-heat-map': 'latest',
             },
             license: 'MIT',
             scripts: {
