@@ -13,8 +13,8 @@
     "static/js/5.a3872f09.chunk.js": "/react-heat-map/static/js/5.a3872f09.chunk.js",
     "static/js/5.a3872f09.chunk.js.map": "/react-heat-map/static/js/5.a3872f09.chunk.js.map",
     "main.css": "/react-heat-map/static/css/main.26ba17e3.chunk.css",
-    "main.js": "/react-heat-map/static/js/main.541dd3a9.chunk.js",
-    "main.js.map": "/react-heat-map/static/js/main.541dd3a9.chunk.js.map",
+    "main.js": "/react-heat-map/static/js/main.e80fe052.chunk.js",
+    "main.js.map": "/react-heat-map/static/js/main.e80fe052.chunk.js.map",
     "runtime-main.js": "/react-heat-map/static/js/runtime-main.546b6cd4.js",
     "runtime-main.js.map": "/react-heat-map/static/js/runtime-main.546b6cd4.js.map",
     "static/css/8.a070acd3.chunk.css": "/react-heat-map/static/css/8.a070acd3.chunk.css",
@@ -262,6 +262,6 @@
     "static/css/8.a070acd3.chunk.css",
     "static/js/8.79b6127a.chunk.js",
     "static/css/main.26ba17e3.chunk.css",
-    "static/js/main.541dd3a9.chunk.js"
+    "static/js/main.e80fe052.chunk.js"
   ]
 }
