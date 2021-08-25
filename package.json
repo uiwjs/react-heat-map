@@ -67,7 +67,7 @@
     "@uiw/react-tooltip": "4.7.16",
     "@uiw/reset.css": "1.0.5",
     "compile-less-cli": "1.8.0",
-    "husky": "4.3.8",
+    "husky": "7.0.2",
     "kkt": "6.11.0",
     "lint-staged": "11.1.2",
     "prettier": "2.3.2",
