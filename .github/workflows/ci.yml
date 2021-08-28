@@ -16,7 +16,6 @@ jobs:
         node-version: 14
 
     - run: npm install
-    - run: npm run build
     - run: npm run doc
 
     - run: npm install @jsdevtools/npm-publish -g
@@ -54,9 +53,11 @@ jobs:
         tag: ${{ steps.create_tag.outputs.version }}
         body: |
           [![](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-heat-map@${{steps.create_tag.outputs.versionNumber}}/file/README.md) [![](https://img.shields.io/github/issues/uiwjs/react-heat-map.svg)](https://github.com/uiwjs/react-heat-map/releases) [![](https://img.shields.io/github/forks/uiwjs/react-heat-map.svg)](https://github.com/uiwjs/react-heat-map/network) [![](https://img.shields.io/github/stars/uiwjs/react-heat-map.svg)](https://github.com/uiwjs/react-heat-map/stargazers) [![](https://img.shields.io/github/release/uiwjs/react-heat-map.svg)](https://github.com/uiwjs/react-heat-map/releases) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@uiw/react-heat-map)](https://bundlephobia.com/result?p=@uiw/react-heat-map@${{steps.create_tag.outputs.versionNumber}})
+
           ```bash
           npm i @uiw/react-heat-map@${{steps.create_tag.outputs.versionNumber}}
           ```
 
           ${{ steps.changelog.outputs.compareurl }}
+
           ${{ steps.changelog.outputs.changelog }}
