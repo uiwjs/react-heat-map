@@ -13,10 +13,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "declaration": true,
-    "baseUrl": "./website",
+    "baseUrl": ".",
     "jsx": "react-jsx",
     "noFallthroughCasesInSwitch": true,
-    "noEmit": true
+    "noEmit": true,
+    "types": ["jest", "node"]
   },
-  "include": ["website", ".kktrc.ts"]
+  "include": ["website", "src", ".kktrc.ts"]
 }
