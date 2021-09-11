@@ -12,9 +12,10 @@
     "css:build": "compile-less -d src -o esm",
     "css:watch": "compile-less -d src -o esm --watch",
     "css:build:dist": "compile-less -d src --combine dist.css --rm-global",
-    "watch": "tsbb watch",
+    "watch": "tsbb watch & npm run css:watch",
     "build": "tsbb build && npm run css:build && npm run css:build:dist",
-    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\""
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "type-check": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
