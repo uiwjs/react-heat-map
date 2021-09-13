@@ -45,11 +45,11 @@ const App: React.FC = () => {
            * codePen 显示 Codepen 按钮，要特别注意 包导入的问题，实例中的 import 主要用于 Codepen 使用。
            */
            code: ({ inline, node, ...props }) => {
-            const { noPreview, noScroll, bgWhite, noCode, codePen } = props as any;
+            const { noPreview, noScroll, bgWhite, noCode, codeSandbox, codePen } = props as any;
             if (inline) {
               return <code {...props} />;
             }
-            const config = { noPreview, noScroll, bgWhite, noCode, codePen } as any;
+            const config = { noPreview, noScroll, bgWhite, noCode, codeSandbox, codePen } as any;
             if (Object.keys(config).filter((name) => config[name] !== undefined).length === 0) {
               return <code {...props} />;
             }
@@ -58,7 +58,7 @@ const App: React.FC = () => {
                 code={getCodeStr(node.children)}
                 dependencies={{ useRef, useEffect, useState, HeatMap, Tooltip }}
                 language={(props.className || '').replace(/^language-/, '')}
-                {...{ noPreview, noScroll, bgWhite, noCode, codePen }}
+                {...{ noPreview, noScroll, bgWhite, noCode, codeSandbox, codePen }}
               />
             );
           },
