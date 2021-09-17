@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-heat-map",
-  "version": "1.4.7",
+  "version": "1.4.8",
   "description": "React component create calendar heatmap to visualize time series data, a la github contribution graph.",
   "homepage": "https://uiwjs.github.io/react-heat-map/",
   "main": "cjs/index.js",
