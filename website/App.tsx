@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import GitHubCorners from '@uiw/react-github-corners';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import Tooltip from '@uiw/react-tooltip';
-import rehypeAttr from 'rehype-attr';
 import Code from './Code';
 import HeatMap from '../';
 import Example from './Example';
@@ -35,7 +34,6 @@ const App: React.FC = () => {
       <MarkdownPreview
         source={MDStr}
         className={styles.content}
-        rehypePlugins={[[rehypeAttr, { properties: 'attr' }]]}
         components={{
           /**
            * bgWhite 设置代码预览背景白色，否则为格子背景。
