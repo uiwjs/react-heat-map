@@ -2,20 +2,20 @@ import React, { Fragment, useMemo } from 'react';
 import { SVGProps } from './SVG';
 
 export interface LablesWeekProps extends React.SVGProps<SVGTextElement> {
-  weekLables: SVGProps['weekLables'];
+  weekLabels: SVGProps['weekLabels'];
   rectSize: SVGProps['rectSize'];
   space: SVGProps['space'];
   topPad: number;
 }
-export const LablesWeek = ({ weekLables = [], rectSize = 0, topPad = 0, space = 0 }: LablesWeekProps) =>
+export const LabelsWeek = ({ weekLabels = [], rectSize = 0, topPad = 0, space = 0 }: LablesWeekProps) =>
   useMemo(
     () => (
       <Fragment>
         {[...Array(7)].map((_, idx) => {
-          if (weekLables && weekLables[idx]) {
+          if (weekLabels && weekLabels[idx]) {
             return (
               <text key={idx} x={15} y={topPad} dy={(idx + 1) * (rectSize + space) - 5}>
-                {weekLables[idx]}
+                {weekLabels[idx]}
               </text>
             );
           }
@@ -23,5 +23,5 @@ export const LablesWeek = ({ weekLables = [], rectSize = 0, topPad = 0, space = 
         })}
       </Fragment>
     ),
-    [rectSize, space, topPad, weekLables],
+    [rectSize, space, topPad, weekLabels],
   );

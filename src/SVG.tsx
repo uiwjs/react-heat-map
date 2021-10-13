@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { LablesWeek } from './LablesWeek';
-import { LablesMonth } from './LablesMonth';
+import { LabelsWeek } from './LabelsWeek';
+import { LabelsMonth } from './LabelsMonth';
 import { Rect } from './Rect';
 import { formatData, getDateToString, existColor, numberSort, isValidDate, oneDayTime } from './utils';
 import Legend, { LegendProps } from './Legend';
@@ -30,8 +30,8 @@ export interface SVGProps extends React.SVGProps<SVGSVGElement> {
     },
   ) => React.ReactElement | void;
   value?: Array<HeatMapValue>;
-  weekLables?: string[] | false;
-  monthLables?: string[] | false;
+  weekLabels?: string[] | false;
+  monthLabels?: string[] | false;
   panelColors?: Record<number, string>;
 }
 
@@ -46,18 +46,18 @@ export default function SVG(props: SVGProps) {
     rectRender,
     legendRender,
     value = [],
-    weekLables = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-    monthLables = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    weekLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    monthLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     panelColors = { 0: '#EBEDF0', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#196127' },
     ...other
   } = props || {};
   const [gridNum, setGridNum] = useState(0);
-  const [leftPad, setLeftPad] = useState(!!weekLables ? 28 : 5);
-  const [topPad, setTopPad] = useState(!!monthLables ? 20 : 5);
+  const [leftPad, setLeftPad] = useState(!!weekLabels ? 28 : 5);
+  const [topPad, setTopPad] = useState(!!monthLabels ? 20 : 5);
   const svgRef = React.createRef<SVGSVGElement>();
   const nums = useMemo(() => numberSort(Object.keys(panelColors).map((item) => parseInt(item, 10))), [panelColors]);
   const data = useMemo(() => formatData(value), [value]);
-  useEffect(() => setLeftPad(!!weekLables ? 28 : 5), [weekLables]);
+  useEffect(() => setLeftPad(!!weekLabels ? 28 : 5), [weekLabels]);
   useEffect(() => {
     if (svgRef.current) {
       const width = svgRef.current.clientWidth - leftPad || 0;
@@ -66,8 +66,8 @@ export default function SVG(props: SVGProps) {
   }, [rectSize, svgRef, space, leftPad]);
 
   useEffect(() => {
-    setTopPad(!!monthLables ? 20 : 5);
-  }, [monthLables]);
+    setTopPad(!!monthLabels ? 20 : 5);
+  }, [monthLabels]);
 
   const initStartDate = useMemo(() => {
     if (isValidDate(startDate)) {
@@ -91,9 +91,9 @@ export default function SVG(props: SVGProps) {
           space={space}
         />
       )}
-      <LablesWeek weekLables={weekLables} rectSize={rectSize} space={space} topPad={topPad} />
-      <LablesMonth
-        monthLables={monthLables}
+      <LabelsWeek weekLabels={weekLabels} rectSize={rectSize} space={space} topPad={topPad} />
+      <LabelsMonth
+        monthLabels={monthLabels}
         rectSize={rectSize}
         space={space}
         leftPad={leftPad}
