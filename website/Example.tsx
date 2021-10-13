@@ -62,14 +62,14 @@ const darkColor = { 0: 'rgb(255 255 255 / 25%)', 8: '#7BC96F', 4: '#C6E48B', 12:
 
 export default function Example() {
   const [value, setValue] = useState(data1);
-  const [selectaDate, setSelectaDate] = useState();
+  const [selectDate, setSelectDate] = useState();
   const [enableEndDate, setEnableEndDate] = useState(false);
   const [enableDark, setEnableDark] = useState(false);
   const [enableCircle, setEnableCircle] = useState(false);
   const [rectSize, setRectSize] = useState(11);
   const [legendCellSize, setLegendCellSize] = useState<number | undefined>();
-  const [enableWeekLables, setEnableWeekLables] = useState<false | undefined | string[]>(undefined);
-  const [enableMonthLables, setEnableMonthLables] = useState<false | undefined | string[]>(undefined);
+  const [enableWeekLabels, setEnableWeekLabels] = useState<false | undefined | string[]>(undefined);
+  const [enableMonthLabels, setEnableMonthLabels] = useState<false | undefined | string[]>(undefined);
   return (
     <Fragment>
       <div className={styles.example} style={{ width: 663 }}>
@@ -82,15 +82,15 @@ export default function Example() {
           width={663}
           rectSize={rectSize}
           legendCellSize={legendCellSize}
-          weekLables={enableWeekLables}
-          monthLables={enableMonthLables}
+          weekLabels={enableWeekLabels}
+          monthLabels={enableMonthLabels}
           startDate={new Date('2016/01/01')}
           endDate={enableEndDate ? new Date('2016/6/01') : undefined}
           value={value}
           rectProps={{
             rx: !enableCircle ? 0 : 5,
             onClick: (e) => {
-              setSelectaDate((e.target as any).dataset.date);
+              setSelectDate((e.target as any).dataset.date);
             },
           }}
           legendRender={(props) => <rect {...props} rx={!enableCircle ? 0 : 5} />}
@@ -131,7 +131,7 @@ export default function Example() {
         <div style={{ paddingLeft: 10, paddingBottom: 20 }}>
           <button onClick={() => setValue(data1)}>Value 1</button>
           <button onClick={() => setValue(data2)}>Value 2</button>
-          <span>{selectaDate}</span>
+          <span>{selectDate}</span>
         </div>
         <label>
           <input type="checkbox" checked={enableEndDate} onChange={(e) => setEnableEndDate(e.target.checked)} />
@@ -150,60 +150,60 @@ export default function Example() {
         <label style={{ marginTop: 15 }}>
           <input
             type="radio"
-            name="weekLables"
-            checked={enableWeekLables === undefined}
-            onChange={(e) => setEnableWeekLables(undefined)}
+            name="weekLabels"
+            checked={enableWeekLabels === undefined}
+            onChange={(e) => setEnableWeekLabels(undefined)}
           />
-          weekLables = undefined, Default: {JSON.stringify(['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'])}
+          weekLabels = undefined, Default: {JSON.stringify(['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'])}
         </label>
         <label>
           <input
             type="radio"
-            name="weekLables"
-            checked={enableWeekLables === false}
-            onChange={(e) => setEnableWeekLables(false)}
+            name="weekLabels"
+            checked={enableWeekLabels === false}
+            onChange={(e) => setEnableWeekLabels(false)}
           />
-          weekLables = false
+          weekLabels = false
         </label>
         <label>
           <input
             type="radio"
-            name="weekLables"
-            checked={Array.isArray(enableWeekLables)}
-            onChange={(e) => setEnableWeekLables(['日', '一', '', '三', '', '五', '六'])}
+            name="weekLabels"
+            checked={Array.isArray(enableWeekLabels)}
+            onChange={(e) => setEnableWeekLabels(['日', '一', '', '三', '', '五', '六'])}
           />
-          weekLables = {JSON.stringify(['日', '一', '', '三', '', '五', '六'])}
+          weekLabels = {JSON.stringify(['日', '一', '', '三', '', '五', '六'])}
         </label>
 
         <label style={{ marginTop: 15 }}>
           <input
             type="radio"
-            name="monthLables"
-            checked={enableMonthLables === undefined}
-            onChange={(e) => setEnableMonthLables(undefined)}
+            name="monthLabels"
+            checked={enableMonthLabels === undefined}
+            onChange={(e) => setEnableMonthLabels(undefined)}
           />
-          monthLables = undefined, Default:{' '}
+          monthLabels = undefined, Default:{' '}
           {JSON.stringify(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])}
         </label>
         <label>
           <input
             type="radio"
-            name="monthLables"
-            checked={enableMonthLables === false}
-            onChange={(e) => setEnableMonthLables(false)}
+            name="monthLabels"
+            checked={enableMonthLabels === false}
+            onChange={(e) => setEnableMonthLabels(false)}
           />
-          monthLables = false
+          monthLabels = false
         </label>
         <label>
           <input
             type="radio"
-            name="monthLables"
-            checked={Array.isArray(enableMonthLables)}
+            name="monthLabels"
+            checked={Array.isArray(enableMonthLabels)}
             onChange={(e) =>
-              setEnableMonthLables(['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'])
+              setEnableMonthLabels(['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'])
             }
           />
-          monthLables = {JSON.stringify(['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'])}
+          monthLabels = {JSON.stringify(['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'])}
         </label>
 
         <div style={{ display: 'flex', marginTop: 10 }}>

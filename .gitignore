@@ -18,3 +18,6 @@ dist.css
 #.swp
 *.*~
 ~*.*
+
+.idea
+yarn.lock
