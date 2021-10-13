@@ -20,3 +20,4 @@ dist.css
 ~*.*
 
 .idea
+yarn.lock
