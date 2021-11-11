@@ -20,6 +20,8 @@ export default (conf: Configuration, env: 'development' | 'production', options:
       VERSION: JSON.stringify(pkg.version),
     }),
   );
+  /** https://github.com/uiwjs/react-code-preview/issues/94 */
+  conf.module!.exprContextCritical = false;
   if (env === 'production') {
     conf.output = { ...conf.output, publicPath: './' };
   }
