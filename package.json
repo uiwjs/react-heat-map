@@ -57,7 +57,7 @@
     "@uiw/react-markdown-preview": "3.4.5",
     "@uiw/react-tooltip": "4.9.7",
     "@uiw/reset.css": "1.0.5",
-    "compile-less-cli": "1.8.9",
+    "compile-less-cli": "1.8.10",
     "husky": "7.0.4",
     "kkt": "7.0.4",
     "lint-staged": "11.2.6",
