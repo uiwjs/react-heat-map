@@ -15,7 +15,8 @@
     "watch": "tsbb watch & npm run css:watch",
     "build": "tsbb build && npm run css:build && npm run css:build:dist",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "map": "source-map-explorer build/static/js/*.js --html build/website-result.html"
   },
   "repository": {
     "type": "git",
@@ -47,23 +48,24 @@
     "react-dom": ">=16.9.0"
   },
   "devDependencies": {
-    "@kkt/less-modules": "7.0.4",
-    "@kkt/raw-modules": "7.0.4",
-    "@kkt/scope-plugin-options": "7.0.4",
+    "@kkt/less-modules": "7.0.5",
+    "@kkt/raw-modules": "7.0.5",
+    "@kkt/scope-plugin-options": "7.0.5",
     "@types/react": "17.0.38",
     "@types/react-dom": "17.0.11",
     "@uiw/react-code-preview": "3.0.0",
     "@uiw/react-github-corners": "1.5.3",
-    "@uiw/react-markdown-preview": "3.4.5",
+    "@uiw/react-markdown-preview": "3.4.7",
     "@uiw/react-tooltip": "4.9.7",
     "@uiw/reset.css": "1.0.5",
     "compile-less-cli": "1.8.11",
     "husky": "7.0.4",
-    "kkt": "7.0.4",
+    "kkt": "7.0.5",
     "lint-staged": "11.2.6",
     "prettier": "2.5.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "source-map-explorer": "2.5.2",
     "tsbb": "3.5.4"
   },
   "eslintConfig": {
