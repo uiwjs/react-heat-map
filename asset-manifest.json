@@ -1,14 +1,32 @@
 {
   "files": {
-    "main.css": "/react-heat-map/static/css/main.0ba728ff.css",
-    "main.js": "/react-heat-map/static/js/main.5c92d69c.js",
+    "main.css": "/react-heat-map/static/css/main.15c2d698.css",
+    "main.js": "/react-heat-map/static/js/main.3c38c6eb.js",
+    "refractor-vendor.js": "/react-heat-map/static/js/refractor-vendor.19cdcdb6.js",
+    "uiw-vendor.js": "/react-heat-map/static/js/uiw-vendor.4b18fe35.js",
+    "codemirror-vendor.js": "/react-heat-map/static/js/codemirror-vendor.3e012218.js",
+    "parse5-vendor.js": "/react-heat-map/static/js/parse5-vendor.d4fa2dad.js",
+    "react-vendor.js": "/react-heat-map/static/js/react-vendor.2cef81df.js",
+    "babel-standalone-vendor.js": "/react-heat-map/static/js/babel-standalone-vendor.0325ad19.js",
     "static/media/logo.svg": "/react-heat-map/static/media/logo.3931a054f5ef8356122965d973d55570.svg",
     "index.html": "/react-heat-map/index.html",
-    "main.0ba728ff.css.map": "/react-heat-map/static/css/main.0ba728ff.css.map",
-    "main.5c92d69c.js.map": "/react-heat-map/static/js/main.5c92d69c.js.map"
+    "main.15c2d698.css.map": "/react-heat-map/static/css/main.15c2d698.css.map",
+    "main.3c38c6eb.js.map": "/react-heat-map/static/js/main.3c38c6eb.js.map",
+    "refractor-vendor.19cdcdb6.js.map": "/react-heat-map/static/js/refractor-vendor.19cdcdb6.js.map",
+    "uiw-vendor.4b18fe35.js.map": "/react-heat-map/static/js/uiw-vendor.4b18fe35.js.map",
+    "codemirror-vendor.3e012218.js.map": "/react-heat-map/static/js/codemirror-vendor.3e012218.js.map",
+    "parse5-vendor.d4fa2dad.js.map": "/react-heat-map/static/js/parse5-vendor.d4fa2dad.js.map",
+    "react-vendor.2cef81df.js.map": "/react-heat-map/static/js/react-vendor.2cef81df.js.map",
+    "babel-standalone-vendor.0325ad19.js.map": "/react-heat-map/static/js/babel-standalone-vendor.0325ad19.js.map"
   },
   "entrypoints": [
-    "static/css/main.0ba728ff.css",
-    "static/js/main.5c92d69c.js"
+    "static/js/refractor-vendor.19cdcdb6.js",
+    "static/js/uiw-vendor.4b18fe35.js",
+    "static/js/codemirror-vendor.3e012218.js",
+    "static/js/parse5-vendor.d4fa2dad.js",
+    "static/js/react-vendor.2cef81df.js",
+    "static/js/babel-standalone-vendor.0325ad19.js",
+    "static/css/main.15c2d698.css",
+    "static/js/main.3c38c6eb.js"
   ]
 }
