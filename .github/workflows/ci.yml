@@ -1,4 +1,4 @@
-name: Build & Deploy
+name: CI
 on:
   push:
     branches:
@@ -16,16 +16,29 @@ jobs:
         node-version: 14
 
     - run: npm install
+    - run: npm run build
+    - run: npm run bundle
+    - run: npm run bundle:min
     - run: npm run doc
 
-    - run: npm install @jsdevtools/npm-publish -g
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./package.json
+    - name: Generate Contributors Images
+      uses: jaywcjlove/github-action-contributors@main
+      with:
+        filter-author: (renovate\[bot\]|renovate-bot|dependabot\[bot\])
+        output: build/CONTRIBUTORS.svg
+        avatarSize: 42
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
 
     - name: Create Tag
       id: create_tag
       uses: jaywcjlove/create-tag-action@v1.3.5
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
         package-path: ./package.json
 
     - name: Generate Changelog
@@ -36,13 +49,6 @@ jobs:
         head-ref: ${{steps.create_tag.outputs.version}}
         filter-author: (renovate-bot|Renovate Bot)
         filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
-
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
 
     - name: Create Release
       uses: ncipollo/release-action@v1
@@ -61,3 +67,7 @@ jobs:
           ${{ steps.changelog.outputs.compareurl }}
 
           ${{ steps.changelog.outputs.changelog }}
+
+
+    - run: npm install @jsdevtools/npm-publish -g
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./package.json
