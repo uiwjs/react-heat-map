@@ -7,7 +7,7 @@ import scopePluginOptions from '@kkt/scope-plugin-options';
 import pkg from './package.json';
 
 export default (conf: Configuration, env: 'development' | 'production', options: LoaderConfOptions) => {
-  conf = rawModules(conf, env, { ...options });
+  conf = lessModules(conf, env, options);
   if (options.bundle) {
     conf.output!.library = '@uiw/react-heat-map';
     conf.externals = {
@@ -17,13 +17,13 @@ export default (conf: Configuration, env: 'development' | 'production', options:
         commonjs: 'react',
         amd: 'react',
       },
-    }
+    };
   } else {
     conf = scopePluginOptions(conf, env, {
       ...options,
       allowedFiles: [path.resolve(process.cwd(), 'README.md')],
     });
-    conf = lessModules(conf, env, options);
+    conf = rawModules(conf, env, { ...options });
     // Get the project version.
     conf.plugins!.push(
       new webpack.DefinePlugin({
