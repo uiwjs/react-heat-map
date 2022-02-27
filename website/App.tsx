@@ -4,6 +4,7 @@ import MarkdownPreview from '@uiw/react-markdown-preview';
 import Tooltip from '@uiw/react-tooltip';
 import Code from './Code';
 import HeatMap from '../';
+import pkg from '../package.json';
 import Example from './Example';
 import logo from './logo.svg';
 import styles from './App.module.less';
@@ -53,6 +54,7 @@ const App: React.FC = () => {
             }
             return (
               <Code
+                version={pkg.version}
                 code={getCodeStr(node.children)}
                 dependencies={{ useRef, useEffect, useState, HeatMap, Tooltip }}
                 language={(props.className || '').replace(/^language-/, '')}
