@@ -2,10 +2,11 @@ HeatMap 日历热图
 ===
 <!--rehype:style=text-align: center;-->
 
-[![Build & Deploy](https://github.com/uiwjs/react-heat-map/workflows/Build%20&%20Deploy/badge.svg)](https://github.com/uiwjs/react-heat-map/actions)
+[![Build & Deploy](https://github.com/uiwjs/react-heat-map/actions/workflows/ci.yml/badge.svg)](https://github.com/uiwjs/react-heat-map/actions/workflows/ci.yml)
 [![Coverage Status](https://img.shields.io/npm/dm/@uiw/react-heat-map.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-heat-map)
 [![npm version](https://img.shields.io/npm/v/@uiw/react-heat-map.svg)](https://www.npmjs.com/package/@uiw/react-heat-map)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@uiw/react-heat-map)](https://bundlephobia.com/result?p=@uiw/react-heat-map)
+[![Open in Gitpod](https://shields.io/badge/Open%20in-Gitpod-green?logo=Gitpod)](https://gitpod.io/#https://github.com/uiwjs/react-codemirror)
 <!--rehype:style=text-align: center;-->
 
 A lightweight calendar heatmap react component built on SVG, customizable version of GitHub's contribution graph. Try it out on [website example](https://uiwjs.github.io/react-heat-map/).
