@@ -41,6 +41,8 @@
   },
   "files": [
     "dist.css",
+    "dist",
+    "src",
     "cjs",
     "esm"
   ],
