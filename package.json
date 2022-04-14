@@ -61,7 +61,7 @@
     "@uiw/react-code-preview": "~4.0.5",
     "@uiw/react-github-corners": "~1.5.3",
     "@uiw/react-markdown-preview": "~3.4.7",
-    "@uiw/react-tooltip": "~4.12.2",
+    "@uiw/react-tooltip": "~4.21.0",
     "@uiw/reset.css": "~1.0.5",
     "compile-less-cli": "~1.8.11",
     "husky": "~7.0.4",
