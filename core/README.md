@@ -280,6 +280,10 @@ export default Demo
 Runs the project in development mode.  
 
 ```bash
+npm install
+```
+
+```bash
 # Step 1, run first, listen to the component compile and output the .js file
 # listen for compilation output type .d.ts file
 npm run watch
@@ -293,6 +297,7 @@ Builds the app for production to the build folder.
 
 ```bash
 npm run build
+npm run doc
 ```
 
 The build is minified and the filenames include the hashes.
