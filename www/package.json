@@ -1,7 +1,7 @@
 {
   "name": "www",
   "private": true,
-  "version": "2.0.3",
+  "version": "2.0.4",
   "scripts": {
     "build": "kkt build",
     "start": "kkt start",
@@ -20,13 +20,13 @@
     "source-map-explorer": "~2.5.2"
   },
   "dependencies": {
-    "@uiw/react-tooltip": "^4.21.11",
     "@uiw/react-github-corners": "~1.5.3",
+    "@uiw/react-heat-map": "2.0.4",
     "@uiw/react-markdown-preview": "^4.0.17",
-    "@uiw/react-heat-map": "2.0.3",
     "@uiw/react-shields": "~1.1.2",
-    "@wcj/dark-mode": "~1.0.9",
+    "@uiw/react-tooltip": "^4.21.11",
     "@uiw/reset.css": "^1.0.6",
+    "@wcj/dark-mode": "~1.0.9",
     "react": "~18.1.0",
     "react-code-preview-layout": "^2.0.4",
     "react-dom": "~18.1.0",

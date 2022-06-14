@@ -9,6 +9,7 @@
     "doc": "npm run-script build --workspace www",
     "start": "npm run-script start --workspace www",
     "⬆️⬆️⬆️⬆️⬆️ package ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ package ▲▲▲▲▲",
+    "version": "lerna version --exact --force-publish --no-push --no-git-tag-version",
     "prepare": "npm run build",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "type-check": "tsc --noEmit",
