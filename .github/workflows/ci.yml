@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - '.github/**/*.yml'
+    # paths-ignore:
+    #   - '.github/**/*.yml'
 
 jobs:
   build-deploy:
