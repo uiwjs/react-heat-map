@@ -23,7 +23,7 @@
     ]
   },
   "devDependencies": {
-    "@kkt/less-modules": "~7.1.1",
+    "@kkt/less-modules": "~7.2.0",
     "@kkt/ncc": "~1.0.9",
     "compile-less-cli": "~1.8.13",
     "husky": "~8.0.0",
