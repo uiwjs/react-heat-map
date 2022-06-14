@@ -2,6 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <title>HeatMap for React.</title>
+    <meta name="keywords" content="react,component,react-heat-map,heat-map,graph,HeatMap" />
+    <meta name="description" content="React component create calendar heatmap to visualize time series data, a la github contribution graph." />
     <script src="https://unpkg.com/@babel/standalone@7.17.5/babel.min.js" crossorigin></script>
     <script src="https://unpkg.com/react@16.x/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16.x/umd/react-dom.development.js" crossorigin></script>
@@ -9,10 +12,39 @@
     <link rel="stylesheet" href="https://unpkg.com/@uiw/react-heat-map/dist/heat-map.css">
   </head>
   <body>
+    <a href="https://uiwjs.github.io/react-heat-map">@uiw/react-heat-map</a>
     <div id="container" style="padding: 24px"></div>
     <script src="https://unpkg.com/@uiw/react-heat-map/dist/heat-map.min.js"></script>
     <script type="text/babel">
       import HeatMap from '@uiw/react-heat-map';
+
+      const SetRectStyle = () => {
+        const [range, setRange] = React.useState(5)
+        return (
+          <div>
+            <input type="range" min="0" max="5" step="0.1" value={range} onChange={(e) => setRange(e.target.value)} /> {range}
+            <HeatMap
+              value={[
+                { date: '2016/01/11', count:2 },
+                ...[...Array(17)].map((_, idx) => ({ date: `2016/01/${idx + 10}`, count: idx })),
+                ...[...Array(17)].map((_, idx) => ({ date: `2016/02/${idx + 10}`, count: idx })),
+                { date: '2016/04/12', count:2 },
+                { date: '2016/05/01', count:5 },
+                { date: '2016/05/02', count:5 },
+                { date: '2016/05/03', count:1 },
+                { date: '2016/05/04', count:11 },
+                { date: '2016/05/08', count:32 },
+              ]}
+              width={600}
+              startDate={new Date('2016/01/01')}
+              legendRender={(props) => <rect {...props} y={props.y + 10} rx={range} />}
+              rectProps={{
+                rx: range
+              }}
+            />
+          </div>
+        );
+      };
 
       const value = [
         { date: '2016/01/11', count: 2 },
@@ -27,7 +59,24 @@
 
       const Demo = () => {
         return (
-          <HeatMap value={value} startDate={new Date('2016/01/01')} />
+          <React.Fragment>
+            <HeatMap value={value} startDate={new Date('2016/01/01')} />
+            <HeatMap
+              value={value}
+              width={600}
+              style={{ color: '#ad001d' }}
+              startDate={new Date('2016/01/01')}
+              panelColors={{
+                0: '#f4decd',
+                2: '#e4b293',
+                4: '#d48462',
+                10: '#c2533a',
+                20: '#ad001d',
+                30: '#000',
+              }}
+            />
+            <SetRectStyle />
+          </React.Fragment>
         );
       };
 
