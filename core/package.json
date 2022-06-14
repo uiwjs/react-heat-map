@@ -1,0 +1,47 @@
+{
+  "name": "@uiw/react-heat-map",
+  "version": "2.0.3",
+  "description": "React component create calendar heatmap to visualize time series data, a la github contribution graph.",
+  "homepage": "https://uiwjs.github.io/react-heat-map/",
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "author": "kenny wang <wowohoo@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "css:build": "compile-less -d src -o esm",
+    "css:watch": "compile-less -d src -o esm --watch",
+    "css:build:dist": "compile-less -d src --combine dist.css --rm-global",
+    "bundle": "ncc build src/index.tsx --target web --filename heat-map",
+    "bundle:watch": "ncc watch src/index.tsx --target web --filename heat-map",
+    "bundle:min": "ncc build src/index.tsx --target web --filename heat-map --minify",
+    "watch": "tsbb watch & npm run css:watch",
+    "build": "tsbb build && npm run css:build && npm run css:build:dist",
+    "type-check": "tsc --noEmit",
+    "test": "tsbb test --env=jsdom",
+    "coverage": "tsbb test --env=jsdom --coverage --bail"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uiwjs/react-heat-map.git"
+  },
+  "files": [
+    "dist.css",
+    "dist",
+    "src",
+    "cjs",
+    "esm"
+  ],
+  "keywords": [
+    "react",
+    "heat-map",
+    "react-heat-map",
+    "uiw",
+    "uiwjs",
+    "code"
+  ],
+  "peerDependencies": {
+    "@babel/runtime": ">=7.10.0",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  }
+}

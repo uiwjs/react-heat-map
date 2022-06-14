@@ -25,8 +25,8 @@ Basic usage example, Please pay warning to the time setting.
 
 ⚠️ Example: ~~`2016-01-11`<!--rehype:style=color: red;background-color: #ffd8d8;-->~~ -> `2016/01/11`<!--rehype:style=color: green;background: #a7e4b5;-->, Support `Safari`<!--rehype:style=background-color: #87d499;-->
 
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import HeatMap from '@uiw/react-heat-map';
 
 const value = [
@@ -47,16 +47,16 @@ const Demo = () => {
     </div>
   )
 };
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo
 ```
 
 ## Set Color
 
 Set the theme color style.
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import HeatMap from '@uiw/react-heat-map';
 
 const value = [
@@ -87,16 +87,15 @@ const Demo = () => {
     />
   )
 };
-ReactDOM.render(<Demo />, _mount_);
+export default Demo
 ```
 
 ## Set Rect Style
 
 Set the radius of the rect.
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React, { useState } from 'react';
 import HeatMap from '@uiw/react-heat-map';
 
 const value = [
@@ -128,16 +127,15 @@ const Demo = () => {
     </div>
   )
 };
-ReactDOM.render(<Demo />, _mount_);
+export default Demo
 ```
 
 ## Tooltip
 
 A simple text popup tip.
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import Tooltip from '@uiw/react-tooltip';
 import HeatMap from '@uiw/react-heat-map';
 
@@ -170,14 +168,13 @@ const Demo = () => {
     />
   )
 };
-ReactDOM.render(<Demo />, _mount_);
+export default Demo
 ```
 
 ## Show/Hide Legend
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React, { useState } from 'react';
 import HeatMap from '@uiw/react-heat-map';
 
 const value = [
@@ -213,14 +210,13 @@ const Demo = () => {
     </div>
   )
 };
-ReactDOM.render(<Demo />, _mount_);
+export default Demo
 ```
 
 ## Selected Rect
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React, { useState } from 'react';
 import HeatMap from '@uiw/react-heat-map';
 
 const value = [
@@ -257,7 +253,7 @@ const Demo = () => {
     </div>
   )
 };
-ReactDOM.render(<Demo />, _mount_);
+export default Demo
 ```
 
 ## Props
@@ -284,10 +280,6 @@ ReactDOM.render(<Demo />, _mount_);
 Runs the project in development mode.  
 
 ```bash
-npm i
-```
-
-```bash
 # Step 1, run first, listen to the component compile and output the .js file
 # listen for compilation output type .d.ts file
 npm run watch
@@ -301,7 +293,6 @@ Builds the app for production to the build folder.
 
 ```bash
 npm run build
-npm run doc
 ```
 
 The build is minified and the filenames include the hashes.

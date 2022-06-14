@@ -7,7 +7,7 @@ export interface LegendProps extends RectProps {
   rectSize: SVGProps['rectSize'];
   leftPad: number;
   legendCellSize: number;
-  legendRender?: (props: RectProps) => React.ReactElement | void;
+  legendRender?: (props: RectProps) => React.ReactElement;
   topPad: number;
   space: number;
 }

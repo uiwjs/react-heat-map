@@ -21,6 +21,10 @@ jobs:
     - run: npm run bundle:min
     - run: npm run doc
 
+    - working-directory: core
+      run: |
+        npm run type-check
+
     - name: Generate Contributors Images
       uses: jaywcjlove/github-action-contributors@main
       with:
@@ -28,22 +32,29 @@ jobs:
         output: build/CONTRIBUTORS.svg
         avatarSize: 42
 
+    - name: Create Tag
+      id: create_tag
+      uses: jaywcjlove/create-tag-action@v1.3.6
+      with:
+        package-path: ./core/package.json
+
+    - name: get tag version
+      id: tag_version
+      uses: jaywcjlove/changelog-generator@v1.5.6
+
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/main'
       with:
+        commit_message: ${{steps.tag_version.outputs.tag}} ${{ github.event.head_commit.message }}
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
-
-    - name: Create Tag
-      id: create_tag
-      uses: jaywcjlove/create-tag-action@v1.3.5
-      with:
-        package-path: ./package.json
+        publish_dir: ./www/build
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
 
     - name: Generate Changelog
       id: changelog
-      uses: jaywcjlove/changelog-generator@v1.4.8
+      uses: jaywcjlove/changelog-generator@v1.5.6
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         head-ref: ${{steps.create_tag.outputs.version}}
@@ -69,5 +80,9 @@ jobs:
           ${{ steps.changelog.outputs.changelog }}
 
 
-    - run: npm install @jsdevtools/npm-publish -g
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./package.json
+    - name: 📦 @uiw/react-heat-map publish to NPM
+      uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        package: ./core/package.json
+

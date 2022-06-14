@@ -1,5 +1,6 @@
 cjs
 esm
+lib
 build
 dist
 node_modules

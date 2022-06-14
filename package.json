@@ -1,94 +1,43 @@
 {
-  "name": "@uiw/react-heat-map",
-  "version": "2.0.3",
-  "description": "React component create calendar heatmap to visualize time series data, a la github contribution graph.",
-  "homepage": "https://uiwjs.github.io/react-heat-map/",
-  "main": "cjs/index.js",
-  "module": "esm/index.js",
+  "private": true,
   "scripts": {
+    "⬇️⬇️⬇️⬇️⬇️ package ⬇️⬇️⬇️⬇️⬇️": "▼▼▼▼▼ package ▼▼▼▼▼",
+    "watch": "npm run-script watch --workspace @uiw/react-heat-map",
+    "build": "npm run-script build --workspace @uiw/react-heat-map",
+    "bundle": "npm run-script bundle --workspace @uiw/react-heat-map",
+    "bundle:min": "npm run-script bundle:min --workspace @uiw/react-heat-map",
+    "doc": "npm run-script build --workspace www",
+    "start": "npm run-script start --workspace www",
+    "⬆️⬆️⬆️⬆️⬆️ package ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ package ▲▲▲▲▲",
     "prepare": "npm run build",
-    "doc": "kkt build --app-src ./website",
-    "start": "kkt start --app-src ./website",
-    "css:build": "compile-less -d src -o esm",
-    "css:watch": "compile-less -d src -o esm --watch",
-    "css:build:dist": "compile-less -d src --combine dist.css --rm-global",
-    "bundle": "ncc build src/index.tsx --target web --filename heat-map",
-    "bundle:min": "ncc build src/index.tsx --target web --filename heat-map --minify",
-    "watch": "tsbb watch & npm run css:watch",
-    "build": "tsbb build && npm run css:build && npm run css:build:dist",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "type-check": "tsc --noEmit",
     "map": "source-map-explorer build/static/js/*.js --html build/website-result.html"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/uiwjs/react-heat-map.git"
-  },
   "author": "kenny wong <wowohoo@qq.com>",
   "license": "MIT",
-  "keywords": [
-    "react",
-    "heat-map",
-    "react-heat-map",
-    "uiw",
-    "uiwjs",
-    "code"
-  ],
   "lint-staged": {
     "*.{js,jsx,tsx,ts,less,md,json}": [
       "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\""
     ]
   },
-  "files": [
-    "dist.css",
-    "dist",
-    "src",
-    "cjs",
-    "esm"
-  ],
-  "peerDependencies": {
-    "@babel/runtime": ">=7.10.0",
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
-  },
   "devDependencies": {
     "@kkt/less-modules": "~7.1.1",
-    "@kkt/ncc": "~1.0.8",
-    "@kkt/raw-modules": "~7.1.1",
-    "@kkt/scope-plugin-options": "~7.1.1",
-    "@types/react": "~17.0.39",
-    "@types/react-dom": "~17.0.11",
-    "@uiw/react-code-preview": "~4.0.5",
-    "@uiw/react-github-corners": "~1.5.3",
-    "@uiw/react-markdown-preview": "~3.4.7",
-    "@uiw/react-tooltip": "~4.12.2",
-    "@uiw/reset.css": "~1.0.5",
-    "compile-less-cli": "~1.8.11",
-    "husky": "~7.0.4",
+    "@kkt/ncc": "~1.0.9",
+    "compile-less-cli": "~1.8.13",
+    "husky": "~8.0.0",
     "kkt": "~7.1.5",
-    "lint-staged": "~12.3.4",
-    "prettier": "~2.5.1",
-    "react": "~17.0.2",
-    "react-dom": "~17.0.2",
-    "source-map-explorer": "~2.5.2",
+    "lerna": "^5.1.2",
+    "lint-staged": "~13.0.0",
+    "prettier": "~2.6.0",
+    "react-test-renderer": "~18.1.0",
     "tsbb": "~3.7.0"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "workspaces": [
+    "core",
+    "www"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
   }
 }

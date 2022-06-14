@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react';
 import Tooltip from '@uiw/react-tooltip';
-import HeatMap, { HeatMapValue } from '../';
+import HeatMap, { HeatMapValue } from '@uiw/react-heat-map';
 import styles from './App.module.less';
 
 const data1: HeatMapValue[] = [
