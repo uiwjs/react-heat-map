@@ -14,7 +14,7 @@ A lightweight calendar heatmap react component built on SVG, customizable versio
 
 <!--rehype:ignore:start-->
 
-![](https://user-images.githubusercontent.com/1680273/186114557-dd47eb2e-d635-4f75-9013-d5d381dce12b.png)
+[![](https://user-images.githubusercontent.com/1680273/186114557-dd47eb2e-d635-4f75-9013-d5d381dce12b.png)](https://uiwjs.github.io/react-heat-map)
 
 <!--rehype:ignore:end-->
 
