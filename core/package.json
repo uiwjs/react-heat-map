@@ -5,6 +5,7 @@
   "homepage": "https://uiwjs.github.io/react-heat-map/",
   "main": "./lib/index.js",
   "module": "./esm/index.js",
+  "types": "./lib/index.d.ts",
   "author": "kenny wang <wowohoo@qq.com>",
   "license": "MIT",
   "scripts": {
@@ -28,7 +29,7 @@
     "dist.css",
     "dist",
     "src",
-    "cjs",
+    "lib",
     "esm"
   ],
   "keywords": [
