@@ -1,10 +1,11 @@
 {
   "name": "@uiw/react-heat-map",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "React component create calendar heatmap to visualize time series data, a la github contribution graph.",
   "homepage": "https://uiwjs.github.io/react-heat-map/",
   "main": "./lib/index.js",
   "module": "./esm/index.js",
+  "types": "./lib/index.d.ts",
   "author": "kenny wang <wowohoo@qq.com>",
   "license": "MIT",
   "scripts": {
@@ -28,7 +29,7 @@
     "dist.css",
     "dist",
     "src",
-    "cjs",
+    "lib",
     "esm"
   ],
   "keywords": [

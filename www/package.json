@@ -1,7 +1,7 @@
 {
   "name": "www",
   "private": true,
-  "version": "2.0.4",
+  "version": "2.0.5",
   "scripts": {
     "build": "kkt build",
     "start": "kkt start",
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@uiw/react-github-corners": "~1.5.3",
-    "@uiw/react-heat-map": "2.0.4",
+    "@uiw/react-heat-map": "2.0.5",
     "@uiw/react-markdown-preview": "^4.0.17",
     "@uiw/react-shields": "~1.1.2",
     "@uiw/react-tooltip": "^4.21.11",
