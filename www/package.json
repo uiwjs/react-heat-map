@@ -12,7 +12,7 @@
     "@kkt/less-modules": "^7.2.0",
     "@kkt/raw-modules": "^7.2.0",
     "@kkt/scope-plugin-options": "^7.2.0",
-    "@types/katex": "~0.14.0",
+    "@types/katex": "~0.16.0",
     "@types/react": "~18.0.17",
     "@types/react-dom": "~18.0.6",
     "kkt": "^7.2.0",
