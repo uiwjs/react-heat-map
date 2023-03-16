@@ -28,7 +28,7 @@
     "@uiw/reset.css": "^1.0.6",
     "@wcj/dark-mode": "~1.0.9",
     "react": "^18.2.0",
-    "react-code-preview-layout": "^2.0.6",
+    "react-code-preview-layout": "^3.0.0",
     "react-dom": "^18.2.0",
     "rehype-ignore": "^1.0.1"
   },
