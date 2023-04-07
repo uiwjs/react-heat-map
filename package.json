@@ -23,16 +23,16 @@
     ]
   },
   "devDependencies": {
-    "@kkt/less-modules": "^7.2.0",
+    "@kkt/less-modules": "^7.4.9",
     "@kkt/ncc": "^1.0.14",
     "compile-less-cli": "^1.8.13",
-    "husky": "^8.0.1",
-    "kkt": "^7.2.0",
-    "lerna": "^5.4.3",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
+    "husky": "^8.0.3",
+    "kkt": "^7.4.9",
+    "lerna": "^6.6.1",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.7",
     "react-test-renderer": "^18.2.0",
-    "tsbb": "^3.7.7"
+    "tsbb": "^4.1.4"
   },
   "workspaces": [
     "core",

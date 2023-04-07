@@ -1,8 +1,9 @@
 {
   "extends": "../tsconfig",
-  "include": ["src", ".kktrc.ts"],
+  "include": ["src"],
   "compilerOptions": {
     "baseUrl": ".",
+    "outDir": "lib",
     "noEmit": false
   }
 }
