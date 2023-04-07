@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.17b9c400.css",
-    "main.js": "/static/js/main.96e4471d.js",
-    "refractor-prismjs-vendor.js": "/static/js/refractor-prismjs-vendor.4cbb7fba.js",
-    "micromark-vendor.js": "/static/js/micromark-vendor.74347c65.js",
-    "babel-runtime-vendor.js": "/static/js/babel-runtime-vendor.a91c9192.js",
-    "parse5-vendor.js": "/static/js/parse5-vendor.80e51678.js",
-    "react-vendor.js": "/static/js/react-vendor.fe7997f6.js",
+    "main.css": "/static/css/main.ece9a799.css",
+    "main.js": "/static/js/main.82a0609e.js",
+    "refractor-prismjs-vendor.js": "/static/js/refractor-prismjs-vendor.e1f193e6.js",
+    "micromark-vendor.js": "/static/js/micromark-vendor.fddc68ec.js",
+    "babel-runtime-vendor.js": "/static/js/babel-runtime-vendor.3a7c1be5.js",
+    "parse5-vendor.js": "/static/js/parse5-vendor.f4039b05.js",
+    "react-vendor.js": "/static/js/react-vendor.79aa022a.js",
     "index.html": "/index.html",
     "static/media/logo.svg": "/static/media/logo.3931a054f5ef8356122965d973d55570.svg",
-    "main.17b9c400.css.map": "/static/css/main.17b9c400.css.map",
-    "main.96e4471d.js.map": "/static/js/main.96e4471d.js.map",
-    "refractor-prismjs-vendor.4cbb7fba.js.map": "/static/js/refractor-prismjs-vendor.4cbb7fba.js.map",
-    "micromark-vendor.74347c65.js.map": "/static/js/micromark-vendor.74347c65.js.map",
-    "babel-runtime-vendor.a91c9192.js.map": "/static/js/babel-runtime-vendor.a91c9192.js.map",
-    "parse5-vendor.80e51678.js.map": "/static/js/parse5-vendor.80e51678.js.map",
-    "react-vendor.fe7997f6.js.map": "/static/js/react-vendor.fe7997f6.js.map"
+    "main.ece9a799.css.map": "/static/css/main.ece9a799.css.map",
+    "main.82a0609e.js.map": "/static/js/main.82a0609e.js.map",
+    "refractor-prismjs-vendor.e1f193e6.js.map": "/static/js/refractor-prismjs-vendor.e1f193e6.js.map",
+    "micromark-vendor.fddc68ec.js.map": "/static/js/micromark-vendor.fddc68ec.js.map",
+    "babel-runtime-vendor.3a7c1be5.js.map": "/static/js/babel-runtime-vendor.3a7c1be5.js.map",
+    "parse5-vendor.f4039b05.js.map": "/static/js/parse5-vendor.f4039b05.js.map",
+    "react-vendor.79aa022a.js.map": "/static/js/react-vendor.79aa022a.js.map"
   },
   "entrypoints": [
-    "static/js/refractor-prismjs-vendor.4cbb7fba.js",
-    "static/js/micromark-vendor.74347c65.js",
-    "static/js/babel-runtime-vendor.a91c9192.js",
-    "static/js/parse5-vendor.80e51678.js",
-    "static/js/react-vendor.fe7997f6.js",
-    "static/css/main.17b9c400.css",
-    "static/js/main.96e4471d.js"
+    "static/js/refractor-prismjs-vendor.e1f193e6.js",
+    "static/js/micromark-vendor.fddc68ec.js",
+    "static/js/babel-runtime-vendor.3a7c1be5.js",
+    "static/js/parse5-vendor.f4039b05.js",
+    "static/js/react-vendor.79aa022a.js",
+    "static/css/main.ece9a799.css",
+    "static/js/main.82a0609e.js"
   ]
 }
