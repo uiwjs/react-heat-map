@@ -31,13 +31,13 @@ const CodePreview: CodeComponent | ReactMarkdownNames = ({ inline, node, ...prop
   const Child = data.components[`${metaId}`];
   if (metaId && typeof Child === 'function') {
     const code = data.data[metaId].value || '';
-    const param = getURLParameters(meta);
+    const { title } = getURLParameters(meta);
     return (
       <CodeLayout>
-        <Preview>
+        <Preview style={{ background: 'var(--color-theme-bg)' }}>
           <Child />
         </Preview>
-        <Toolbar text={code}>{param.title || 'Code Example'}</Toolbar>
+        <Toolbar text={code}>{title || 'Code Example'}</Toolbar>
         <Code>
           <code {...rest}/>
         </Code>

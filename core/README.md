@@ -49,7 +49,11 @@ const value = [
 const Demo = () => {
   return (
     <div>
-      <HeatMap value={value} startDate={new Date('2016/01/01')} />
+      <HeatMap
+        value={value}
+        weekLabels={['', 'Mon', '', 'Wed', '', 'Fri', '']}
+        startDate={new Date('2016/01/01')}
+      />
     </div>
   )
 };
