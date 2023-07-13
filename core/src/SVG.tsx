@@ -1,7 +1,7 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { CSSProperties, useEffect, useMemo, useState } from 'react';
 import { LabelsWeek } from './LabelsWeek';
 import { LabelsMonth } from './LabelsMonth';
-import { Rect } from './Rect';
+import { Rect, RectProps  } from './Rect';
 import { formatData, getDateToString, existColor, numberSort, isValidDate, oneDayTime } from './utils';
 import Legend, { LegendProps } from './Legend';
 
@@ -11,8 +11,6 @@ export type HeatMapValue = {
   count: number;
 };
 
-export type RectProps<T = SVGRectElement> = React.SVGProps<T>;
-
 export interface SVGProps extends React.SVGProps<SVGSVGElement> {
   startDate?: Date;
   endDate?: Date;
@@ -21,8 +19,8 @@ export interface SVGProps extends React.SVGProps<SVGSVGElement> {
   space?: number;
   rectProps?: RectProps;
   legendRender?: LegendProps['legendRender'];
-  rectRender?: <E = SVGRectElement>(
-    data: E & { key: number },
+  rectRender?: (
+    data: React.SVGProps<SVGRectElement>,
     valueItem: HeatMapValue & {
       column: number;
       row: number;
@@ -48,7 +46,8 @@ export default function SVG(props: SVGProps) {
     value = [],
     weekLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     monthLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    panelColors = { 0: '#EBEDF0', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#196127' },
+    panelColors = { 0: 'var(--rhm-rect, #EBEDF0)', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#196127' },
+    style,
     ...other
   } = props || {};
   const [gridNum, setGridNum] = useState(0);
@@ -78,8 +77,15 @@ export default function SVG(props: SVGProps) {
     }
   }, [startDate]);
 
+  const styl = {
+    color: 'var(--rhm-text-color, #24292e)',
+    userSelect: 'none',
+    display: 'block',
+    fontSize: 10,
+  } as CSSProperties;
+
   return (
-    <svg ref={svgRef} {...other}>
+    <svg ref={svgRef} style={{ ...styl, ...style }} {...other}>
       {legendCellSize !== 0 && (
         <Legend
           legendRender={legendRender}
@@ -106,23 +112,25 @@ export default function SVG(props: SVGProps) {
             return (
               <g key={idx} data-column={idx}>
                 {[...Array(7)].map((_, cidx) => {
-                  const dayProps: RectProps = {
-                    ...rectProps,
-                    key: cidx,
-                    fill: '#EBEDF0',
-                    width: rectSize,
-                    height: rectSize,
-                    x: idx * (rectSize + space),
-                    y: (rectSize + space) * cidx,
-                  };
                   const currentDate = new Date(initStartDate.getTime() + oneDayTime * (idx * 7 + cidx));
                   const date = getDateToString(currentDate);
-                  const dataProps = {
+                  const dataProps: RectProps['value'] = {
                     ...data[date],
                     date: date,
                     row: cidx,
                     column: idx,
                     index: idx * 7 + cidx,
+                  };
+                  const dayProps: RectProps = {
+                    ...rectProps,
+                    key: cidx,
+                    fill: 'var(--rhm-rect, #EBEDF0)',
+                    width: rectSize,
+                    height: rectSize,
+                    x: idx * (rectSize + space),
+                    y: (rectSize + space) * cidx,
+                    render: rectRender,
+                    value: dataProps
                   };
 
                   if (endDate instanceof Date && currentDate.getTime() > endDate.getTime()) {
@@ -133,15 +141,10 @@ export default function SVG(props: SVGProps) {
                   } else if (panelColors && panelColors[0]) {
                     dayProps.fill = panelColors[0];
                   }
-                  if (rectRender && typeof rectRender === 'function') {
-                    const elm = rectRender({ ...dayProps, key: cidx }, dataProps);
-                    if (elm && React.isValidElement(elm)) {
-                      return elm;
-                    }
-                  }
                   return (
                     <Rect
                       {...dayProps}
+                      value={dataProps}
                       data-date={date}
                       data-index={dataProps.index}
                       data-row={dataProps.row}

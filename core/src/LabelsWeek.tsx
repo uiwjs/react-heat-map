@@ -1,5 +1,12 @@
+import type { CSSProperties } from 'react';
 import React, { Fragment, useMemo } from 'react';
 import { SVGProps } from './SVG';
+
+export const textStyle: CSSProperties = {
+  textAnchor: 'middle',
+  fontSize: 'inherit',
+  fill: 'currentColor',
+}
 
 export interface LablesWeekProps extends React.SVGProps<SVGTextElement> {
   weekLabels: SVGProps['weekLabels'];
@@ -14,7 +21,7 @@ export const LabelsWeek = ({ weekLabels = [], rectSize = 0, topPad = 0, space = 
         {[...Array(7)].map((_, idx) => {
           if (weekLabels && weekLabels[idx]) {
             return (
-              <text key={idx} x={15} y={topPad} dy={(idx + 1) * (rectSize + space) - 5}>
+              <text className="w-heatmap-week" key={idx} x={15} y={topPad} dy={(idx + 1) * (rectSize + space) - 5} style={textStyle}>
                 {weekLabels[idx]}
               </text>
             );

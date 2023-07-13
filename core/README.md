@@ -80,7 +80,7 @@ const Demo = () => {
     <HeatMap
       value={value}
       width={600}
-      style={{ color: '#ad001d' }}
+      style={{ color: '#ad001d', '--rhm-rect-active': 'red' }}
       startDate={new Date('2016/01/01')}
       panelColors={{
         0: '#f4decd',
@@ -124,6 +124,7 @@ const Demo = () => {
       <HeatMap
         value={value}
         width={600}
+        style={{ '--rhm-rect': '#b9b9b9' }}
         startDate={new Date('2016/01/01')}
         legendRender={(props) => <rect {...props} y={props.y + 10} rx={range} />}
         rectProps={{
@@ -166,7 +167,7 @@ const Demo = () => {
       rectRender={(props, data) => {
         // if (!data.count) return <rect {...props} />;
         return (
-          <Tooltip key={props.key} placement="top" content={`count: ${data.count || 0}`}>
+          <Tooltip placement="top" content={`count: ${data.count || 0}`}>
             <rect {...props} />
           </Tooltip>
         );

@@ -1,25 +1,15 @@
 @w-heatmap:~ "w-heatmap";
 
 svg.@{w-heatmap} {
-  color: #24292e;
-  user-select: none;
-  display: block;
-  font-size: 10px;
   rect {
-    display: block;
-    cursor: pointer;
     &:hover {
-      stroke: rgba(0, 0, 0, 0.14);
+      stroke: var(--rhm-rect-hover-stroke, rgba(0, 0, 0, 0.14));
       stroke-width: 1px;
     }
     &:active {
       fill: #196127;
+      fill: var(--rhm-rect-active, #196127);
       stroke-width: 0;
     }
-  }
-  text {
-    text-anchor: middle;
-    font-size: inherit;
-    fill: currentColor;
   }
 }

@@ -1,6 +1,7 @@
 import React, { Fragment, useMemo } from 'react';
 import { oneDayTime } from './utils';
 import { SVGProps } from './SVG';
+import { textStyle } from './LabelsWeek';
 
 export interface LablesMonthProps extends React.SVGProps<SVGTextElement> {
   monthLabels: SVGProps['monthLabels'];
@@ -46,6 +47,7 @@ export const LabelsMonth = ({
               y={15}
               dx={item!.col * (rectSize + space)}
               textAnchor='start'
+              style={textStyle}
             >
               {item!.monthStr}
             </text>

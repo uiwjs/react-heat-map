@@ -58,7 +58,7 @@ const data2: HeatMapValue[] = [
   { date: '2016/04/22', count: 6, content: '' },
 ];
 
-const darkColor = { 0: 'rgb(255 255 255 / 25%)', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#196127' };
+const darkColor = { 0: 'rgb(255 255 255 / 25%)', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#ff7b00' };
 
 export default function Example() {
   const [value, setValue] = useState(data1);
@@ -97,7 +97,7 @@ export default function Example() {
           rectRender={(props, data) => {
             // if (!data.count) return <rect {...props} />;
             return (
-              <Tooltip key={props.key} placement="top" content={`count: ${data.count || 0}`}>
+              <Tooltip placement="top" content={`count: ${data.count || 0}`}>
                 <rect {...props} />
               </Tooltip>
             );
