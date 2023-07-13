@@ -10,6 +10,7 @@ const App: React.FC = () => {
   return (
     <div className={styles.app}>
       <dark-mode permanent style={{ position: 'fixed', top: 8, left: 10, zIndex: 10 }}></dark-mode>
+      <sup className={styles.version}>{VERSION}</sup>
       <GitHubCorners zIndex={9999} fixed href="https://github.com/uiwjs/react-heat-map" />
       <header className={styles.header}>
         <img src={logo} className={styles.logo} alt="react logo" />
