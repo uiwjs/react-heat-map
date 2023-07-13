@@ -7,7 +7,7 @@ import Legend, { LegendProps } from './Legend';
 
 export type HeatMapValue = {
   date: string;
-  content: string | string[] | React.ReactNode;
+  content?: string | string[] | React.ReactNode;
   count: number;
 };
 
