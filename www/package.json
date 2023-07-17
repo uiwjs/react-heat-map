@@ -20,17 +20,12 @@
     "source-map-explorer": "^2.5.3"
   },
   "dependencies": {
-    "@uiw/react-github-corners": "~1.5.3",
+    "@uiw/react-markdown-preview-example": "^1.5.3",
     "@uiw/react-heat-map": "2.1.1",
-    "@uiw/react-markdown-preview": "^4.0.17",
-    "@uiw/react-shields": "~1.1.2",
     "@uiw/react-tooltip": "^4.21.11",
     "@uiw/reset.css": "^1.0.6",
-    "@wcj/dark-mode": "^1.0.15",
     "react": "^18.2.0",
-    "react-code-preview-layout": "^3.0.0",
-    "react-dom": "^18.2.0",
-    "rehype-ignore": "^1.0.5"
+    "react-dom": "^18.2.0"
   },
   "eslintConfig": {
     "extends": [

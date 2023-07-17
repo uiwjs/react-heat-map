@@ -1,7 +1,43 @@
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import Tooltip from '@uiw/react-tooltip';
 import HeatMap, { HeatMapValue } from '@uiw/react-heat-map';
-import styles from './App.module.less';
+import styled from 'styled-components';
+
+const ExampleWrapper = styled.div`
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px rgb(16 22 26 / 10%), 0 0 0 rgb(16 22 26 / 0%), 0 1px 1px rgb(16 22 26 / 20%);
+  margin: 0 auto;
+  margin-top: 70px;
+  width: 663px;
+  svg {
+    border-radius: 5px;
+  }
+`;
+
+const Tools = styled.div`
+  user-select: none;
+  font-size: 12px;
+  margin-top: 10px !important;
+  padding: 10px;
+  padding-left: 0px;
+  border-radius: 5px;
+  width: 663px;
+  margin: 0 auto;
+  label {
+    display: flex;
+    align-items: center;
+    input {
+      margin-right: 5px;
+      margin-left: 10px;
+    }
+  }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const data1: HeatMapValue[] = [
   { date: '2016/01/11', count: 2, content: '' },
@@ -71,8 +107,8 @@ export default function Example() {
   const [enableWeekLabels, setEnableWeekLabels] = useState<false | undefined | string[]>(undefined);
   const [enableMonthLabels, setEnableMonthLabels] = useState<false | undefined | string[]>(undefined);
   return (
-    <Fragment>
-      <div className={styles.example} style={{ width: 663 }}>
+    <Wrapper>
+      <ExampleWrapper>
         <HeatMap
           style={{
             backgroundColor: enableDark ? '#000' : '#fff',
@@ -126,8 +162,8 @@ export default function Example() {
           //   );
           // }}
         />
-      </div>
-      <div style={{ width: 663, margin: '0 auto' }} className={styles.tools}>
+      </ExampleWrapper>
+      <Tools>
         <div style={{ paddingLeft: 10, paddingBottom: 20 }}>
           <button onClick={() => setValue(data1)}>Value 1</button>
           <button onClick={() => setValue(data2)}>Value 2</button>
@@ -231,7 +267,7 @@ export default function Example() {
             legendCellSize = {legendCellSize}
           </label>
         </div>
-      </div>
-    </Fragment>
+      </Tools>
+    </Wrapper>
   );
 }
