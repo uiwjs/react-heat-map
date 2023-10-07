@@ -9,6 +9,7 @@ export interface LablesMonthProps extends React.SVGProps<SVGTextElement> {
   space: SVGProps['space'];
   leftPad: number;
   colNum: number;
+  rectY?: number;
   startDate: SVGProps['startDate'];
 }
 
@@ -18,6 +19,7 @@ export const LabelsMonth = ({
     space = 0,
     leftPad = 0,
     colNum = 0,
+    rectY = 15,
     startDate,
   }: LablesMonthProps) => {
   const data = useMemo(() => {
@@ -35,26 +37,23 @@ export const LabelsMonth = ({
       .filter((item, idx, list) => list[idx - 1] && list[idx - 1]!.month !== item!.month);
   }, [colNum, monthLabels, startDate]);
 
-  return useMemo(
-    () => (
-      <Fragment>
-        {[...data].map((item, idx) => {
-          return (
-            <text
-              key={idx}
-              data-size={rectSize}
-              x={leftPad + space + space}
-              y={15}
-              dx={item!.col * (rectSize + space)}
-              textAnchor='start'
-              style={textStyle}
-            >
-              {item!.monthStr}
-            </text>
-          );
-        })}
-      </Fragment>
-    ),
-    [data, leftPad, rectSize, space],
+  return (
+    <Fragment>
+      {[...data].map((item, idx) => {
+        return (
+          <text
+            key={idx}
+            data-size={rectSize}
+            x={leftPad + space + space}
+            y={rectY}
+            dx={item!.col * (rectSize + space)}
+            textAnchor='start'
+            style={textStyle}
+          >
+            {item!.monthStr}
+          </text>
+        );
+      })}
+    </Fragment>
   );
 };

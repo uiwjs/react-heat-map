@@ -277,6 +277,7 @@ export default Demo
 | startDate | Start date | Date | `new Date()` |
 | endDate | End date | Date | - |
 | space | Interval between grid sizes | number | `2` | 
+| monthPlacement | position of month labels | `'top' | 'bottom'` | `top` | 
 | rectProps | Grid node attribute settings | `React.SVGProps<SVGRectElement>` | `2` |
 | weekLabels | Week display | string[] | `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']` | 
 | monthLabels | Month display | string[] | `['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']` | 

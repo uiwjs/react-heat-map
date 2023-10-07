@@ -103,6 +103,7 @@ export default function Example() {
   const [enableDark, setEnableDark] = useState(false);
   const [enableCircle, setEnableCircle] = useState(false);
   const [rectSize, setRectSize] = useState(11);
+  const [monthPlacement, setMonthPlacement] = useState<'top' | 'bottom'>('top');
   const [legendCellSize, setLegendCellSize] = useState<number | undefined>();
   const [enableWeekLabels, setEnableWeekLabels] = useState<false | undefined | string[]>(undefined);
   const [enableMonthLabels, setEnableMonthLabels] = useState<false | undefined | string[]>(undefined);
@@ -122,6 +123,7 @@ export default function Example() {
           monthLabels={enableMonthLabels}
           startDate={new Date('2016/01/01')}
           endDate={enableEndDate ? new Date('2016/6/01') : undefined}
+          monthPlacement={monthPlacement}
           value={value}
           rectProps={{
             rx: !enableCircle ? 0 : 5,
@@ -258,6 +260,12 @@ export default function Example() {
         </div>
 
         <div style={{ display: 'flex', marginTop: 16 }}>
+          <label>
+            <select value={monthPlacement} onChange={(evn) => setMonthPlacement(evn.target.value as any)}>
+              <option value="top">monthPlacement = top</option>
+              <option value="bottom">monthPlacement = bottom</option>
+            </select>
+          </label>
           <label>
             <input
               type="number"

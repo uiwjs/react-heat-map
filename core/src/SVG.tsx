@@ -1,9 +1,10 @@
 import React, { CSSProperties, useEffect, useMemo, useState } from 'react';
 import { LabelsWeek } from './LabelsWeek';
 import { LabelsMonth } from './LabelsMonth';
-import { Rect, RectProps  } from './Rect';
-import { formatData, getDateToString, existColor, numberSort, isValidDate, oneDayTime } from './utils';
+import { RectProps  } from './Rect';
+import { isValidDate, oneDayTime } from './utils';
 import Legend, { LegendProps } from './Legend';
+import { Day } from './Day';
 
 export type HeatMapValue = {
   date: string;
@@ -30,6 +31,8 @@ export interface SVGProps extends React.SVGProps<SVGSVGElement> {
   value?: Array<HeatMapValue>;
   weekLabels?: string[] | false;
   monthLabels?: string[] | false;
+  /** position of month labels @default `top` */
+  monthPlacement?: 'top' | 'bottom';
   panelColors?: Record<number, string>;
 }
 
@@ -38,6 +41,7 @@ export default function SVG(props: SVGProps) {
     rectSize = 11,
     legendCellSize = 11,
     space = 2,
+    monthPlacement = 'top',
     startDate = new Date(),
     endDate,
     rectProps,
@@ -52,10 +56,10 @@ export default function SVG(props: SVGProps) {
   } = props || {};
   const [gridNum, setGridNum] = useState(0);
   const [leftPad, setLeftPad] = useState(!!weekLabels ? 28 : 5);
-  const [topPad, setTopPad] = useState(!!monthLabels ? 20 : 5);
+
+  const defaultTopPad = monthPlacement === 'top' ? 20 : 5;
+  const [topPad, setTopPad] = useState(!!monthLabels ? defaultTopPad : 5);
   const svgRef = React.createRef<SVGSVGElement>();
-  const nums = useMemo(() => numberSort(Object.keys(panelColors).map((item) => parseInt(item, 10))), [panelColors]);
-  const data = useMemo(() => formatData(value), [value]);
   useEffect(() => setLeftPad(!!weekLabels ? 28 : 5), [weekLabels]);
   useEffect(() => {
     if (svgRef.current) {
@@ -65,7 +69,7 @@ export default function SVG(props: SVGProps) {
   }, [rectSize, svgRef, space, leftPad]);
 
   useEffect(() => {
-    setTopPad(!!monthLabels ? 20 : 5);
+    setTopPad(!!monthLabels ? defaultTopPad : 5);
   }, [monthLabels]);
 
   const initStartDate = useMemo(() => {
@@ -84,6 +88,8 @@ export default function SVG(props: SVGProps) {
     fontSize: 10,
   } as CSSProperties;
 
+  const monthRectY = monthPlacement === 'top' ? 15 : 15 * 7 + space
+  const legendTopPad = monthPlacement === 'top' ? topPad + rectSize * 8 + 6 : (!!monthLabels ? (topPad + rectSize + space) : topPad) + rectSize * 8 + 6;
   return (
     <svg ref={svgRef} style={{ ...styl, ...style }} {...other}>
       {legendCellSize !== 0 && (
@@ -91,6 +97,7 @@ export default function SVG(props: SVGProps) {
           legendRender={legendRender}
           panelColors={panelColors}
           rectSize={rectSize}
+          rectY={legendTopPad}
           legendCellSize={legendCellSize}
           leftPad={leftPad}
           topPad={topPad}
@@ -104,58 +111,21 @@ export default function SVG(props: SVGProps) {
         space={space}
         leftPad={leftPad}
         colNum={gridNum}
+        rectY={monthRectY}
         startDate={initStartDate}
       />
-      <g transform={`translate(${leftPad}, ${topPad})`}>
-        {gridNum > 0 &&
-          [...Array(gridNum)].map((_, idx) => {
-            return (
-              <g key={idx} data-column={idx}>
-                {[...Array(7)].map((_, cidx) => {
-                  const currentDate = new Date(initStartDate.getTime() + oneDayTime * (idx * 7 + cidx));
-                  const date = getDateToString(currentDate);
-                  const dataProps: RectProps['value'] = {
-                    ...data[date],
-                    date: date,
-                    row: cidx,
-                    column: idx,
-                    index: idx * 7 + cidx,
-                  };
-                  const dayProps: RectProps = {
-                    ...rectProps,
-                    key: cidx,
-                    fill: 'var(--rhm-rect, #EBEDF0)',
-                    width: rectSize,
-                    height: rectSize,
-                    x: idx * (rectSize + space),
-                    y: (rectSize + space) * cidx,
-                    render: rectRender,
-                    value: dataProps
-                  };
-
-                  if (endDate instanceof Date && currentDate.getTime() > endDate.getTime()) {
-                    return null;
-                  }
-                  if (date && data[date] && panelColors && Object.keys(panelColors).length > 0) {
-                    dayProps.fill = existColor(data[date].count || 0, nums, panelColors);
-                  } else if (panelColors && panelColors[0]) {
-                    dayProps.fill = panelColors[0];
-                  }
-                  return (
-                    <Rect
-                      {...dayProps}
-                      value={dataProps}
-                      data-date={date}
-                      data-index={dataProps.index}
-                      data-row={dataProps.row}
-                      data-column={dataProps.column}
-                    />
-                  );
-                })}
-              </g>
-            );
-          })}
-      </g>
+      <Day
+        transform={`translate(${leftPad}, ${topPad})`}
+        gridNum={gridNum}
+        initStartDate={initStartDate}
+        endDate={endDate}
+        rectProps={rectProps}
+        rectSize={rectSize}
+        rectRender={rectRender}
+        panelColors={panelColors}
+        value={value}
+        space={space}
+      />
     </svg>
   );
 }
