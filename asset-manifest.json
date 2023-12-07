@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/static/css/main.6c0fe85d.css",
-    "main.js": "/static/js/main.4bbb9125.js",
-    "refractor-prismjs-vendor.js": "/static/js/refractor-prismjs-vendor.ec4d4982.js",
-    "micromark-vendor.js": "/static/js/micromark-vendor.469bd0be.js",
-    "parse5-vendor.js": "/static/js/parse5-vendor.cab55309.js",
-    "react-vendor.js": "/static/js/react-vendor.4b62965b.js",
+    "main.js": "/static/js/main.fafdbe94.js",
+    "refractor-prismjs-vendor.js": "/static/js/refractor-prismjs-vendor.250ea62b.js",
+    "micromark-vendor.js": "/static/js/micromark-vendor.7ec48533.js",
+    "parse5-vendor.js": "/static/js/parse5-vendor.5bd5f6ac.js",
+    "react-vendor.js": "/static/js/react-vendor.d6e737a5.js",
     "index.html": "/index.html",
     "main.6c0fe85d.css.map": "/static/css/main.6c0fe85d.css.map",
-    "main.4bbb9125.js.map": "/static/js/main.4bbb9125.js.map",
-    "refractor-prismjs-vendor.ec4d4982.js.map": "/static/js/refractor-prismjs-vendor.ec4d4982.js.map",
-    "micromark-vendor.469bd0be.js.map": "/static/js/micromark-vendor.469bd0be.js.map",
-    "parse5-vendor.cab55309.js.map": "/static/js/parse5-vendor.cab55309.js.map",
-    "react-vendor.4b62965b.js.map": "/static/js/react-vendor.4b62965b.js.map"
+    "main.fafdbe94.js.map": "/static/js/main.fafdbe94.js.map",
+    "refractor-prismjs-vendor.250ea62b.js.map": "/static/js/refractor-prismjs-vendor.250ea62b.js.map",
+    "micromark-vendor.7ec48533.js.map": "/static/js/micromark-vendor.7ec48533.js.map",
+    "parse5-vendor.5bd5f6ac.js.map": "/static/js/parse5-vendor.5bd5f6ac.js.map",
+    "react-vendor.d6e737a5.js.map": "/static/js/react-vendor.d6e737a5.js.map"
   },
   "entrypoints": [
-    "static/js/refractor-prismjs-vendor.ec4d4982.js",
-    "static/js/micromark-vendor.469bd0be.js",
-    "static/js/parse5-vendor.cab55309.js",
-    "static/js/react-vendor.4b62965b.js",
+    "static/js/refractor-prismjs-vendor.250ea62b.js",
+    "static/js/micromark-vendor.7ec48533.js",
+    "static/js/parse5-vendor.5bd5f6ac.js",
+    "static/js/react-vendor.d6e737a5.js",
     "static/css/main.6c0fe85d.css",
-    "static/js/main.4bbb9125.js"
+    "static/js/main.fafdbe94.js"
   ]
 }
