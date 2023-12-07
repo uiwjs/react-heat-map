@@ -2,12 +2,12 @@ HeatMap 日历热图
 ===
 <!--rehype:style=text-align: center;-->
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
 [![Build & Deploy](https://github.com/uiwjs/react-heat-map/actions/workflows/ci.yml/badge.svg)](https://github.com/uiwjs/react-heat-map/actions/workflows/ci.yml)
 [![Coverage Status](https://img.shields.io/npm/dm/@uiw/react-heat-map.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-heat-map)
 [![npm version](https://img.shields.io/npm/v/@uiw/react-heat-map.svg)](https://www.npmjs.com/package/@uiw/react-heat-map)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@uiw/react-heat-map)](https://bundlephobia.com/result?p=@uiw/react-heat-map)
 [![Open in Gitpod](https://shields.io/badge/Open%20in-Gitpod-green?logo=Gitpod)](https://gitpod.io/#https://github.com/uiwjs/react-codemirror)
-[![jsDelivr CDN](https://data.jsdelivr.com/v1/package/npm/@uiw/react-heat-map/badge?style=rounded)](https://www.jsdelivr.com/package/npm/@uiw/react-heat-map)
 <!--rehype:style=text-align: center;-->
 
 A lightweight calendar heatmap react component built on SVG, customizable version of GitHub's contribution graph. Try it out on [website example](https://uiwjs.github.io/react-heat-map/).
