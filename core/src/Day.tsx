@@ -39,7 +39,6 @@ export const Day:FC<PropsWithChildren<DayProps>> = (props) => {
               };
               const dayProps: RectProps = {
                 ...rectProps,
-                key: cidx,
                 fill: 'var(--rhm-rect, #EBEDF0)',
                 width: rectSize,
                 height: rectSize,
@@ -60,6 +59,7 @@ export const Day:FC<PropsWithChildren<DayProps>> = (props) => {
               return (
                 <Rect
                   {...dayProps}
+                  key={cidx}
                   value={dataProps}
                   data-date={date}
                   data-index={dataProps.index}

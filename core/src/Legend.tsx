@@ -30,7 +30,6 @@ export default function Legend({
         {Object.keys(panelColors || {}).map((num, key) => {
           const rectProps = {
             ...props,
-            key,
             x: (size + 1) * key + leftPad,
             y: rectY,
             // y: topPad + rectSize * 8 + 6,
@@ -39,7 +38,7 @@ export default function Legend({
             height: size,
           };
           if (legendRender) return legendRender(rectProps);
-          return <Rect {...rectProps} />;
+          return <Rect {...rectProps} key={key} />;
         })}
       </Fragment>
     ),
