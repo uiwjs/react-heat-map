@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.6c0fe85d.css",
-    "main.js": "/static/js/main.da1c2f16.js",
+    "main.css": "/static/css/main.94b5c0a4.css",
+    "main.js": "/static/js/main.25866c7b.js",
     "refractor-prismjs-vendor.js": "/static/js/refractor-prismjs-vendor.a6176727.js",
-    "micromark-vendor.js": "/static/js/micromark-vendor.c85eece4.js",
+    "micromark-vendor.js": "/static/js/micromark-vendor.b136d0ae.js",
     "parse5-vendor.js": "/static/js/parse5-vendor.06d64cd5.js",
-    "react-vendor.js": "/static/js/react-vendor.fc7df868.js",
+    "react-vendor.js": "/static/js/react-vendor.5af0076e.js",
     "index.html": "/index.html",
-    "main.6c0fe85d.css.map": "/static/css/main.6c0fe85d.css.map",
-    "main.da1c2f16.js.map": "/static/js/main.da1c2f16.js.map",
+    "main.94b5c0a4.css.map": "/static/css/main.94b5c0a4.css.map",
+    "main.25866c7b.js.map": "/static/js/main.25866c7b.js.map",
     "refractor-prismjs-vendor.a6176727.js.map": "/static/js/refractor-prismjs-vendor.a6176727.js.map",
-    "micromark-vendor.c85eece4.js.map": "/static/js/micromark-vendor.c85eece4.js.map",
+    "micromark-vendor.b136d0ae.js.map": "/static/js/micromark-vendor.b136d0ae.js.map",
     "parse5-vendor.06d64cd5.js.map": "/static/js/parse5-vendor.06d64cd5.js.map",
-    "react-vendor.fc7df868.js.map": "/static/js/react-vendor.fc7df868.js.map"
+    "react-vendor.5af0076e.js.map": "/static/js/react-vendor.5af0076e.js.map"
   },
   "entrypoints": [
     "static/js/refractor-prismjs-vendor.a6176727.js",
-    "static/js/micromark-vendor.c85eece4.js",
+    "static/js/micromark-vendor.b136d0ae.js",
     "static/js/parse5-vendor.06d64cd5.js",
-    "static/js/react-vendor.fc7df868.js",
-    "static/css/main.6c0fe85d.css",
-    "static/js/main.da1c2f16.js"
+    "static/js/react-vendor.5af0076e.js",
+    "static/css/main.94b5c0a4.css",
+    "static/js/main.25866c7b.js"
   ]
 }
