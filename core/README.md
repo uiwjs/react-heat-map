@@ -72,9 +72,9 @@ import HeatMap from '@uiw/react-heat-map';
 const value = [
   { date: '2016/01/11', count:2 },
   { date: '2016/04/12', count:2 },
-  { date: '2016/05/01', count:5 },
+  { date: '2016/05/01', count:17 },
   { date: '2016/05/02', count:5 },
-  { date: '2016/05/03', count:1 },
+  { date: '2016/05/03', count:27 },
   { date: '2016/05/04', count:11 },
   { date: '2016/05/08', count:32 },
 ];
@@ -88,12 +88,42 @@ const Demo = () => {
       startDate={new Date('2016/01/01')}
       panelColors={{
         0: '#f4decd',
-        2: '#e4b293',
-        4: '#d48462',
-        10: '#c2533a',
-        20: '#ad001d',
-        30: '#000',
+        7: '#e4b293',
+        14: '#d48462',
+        21: '#c2533a',
+        28: '#ad001d',
+        35: '#6c0012'
       }}
+    />
+  )
+};
+export default Demo
+```
+
+Dynamic color based on maximum value
+
+```jsx mdx:preview
+import React from 'react';
+import HeatMap from '@uiw/react-heat-map';
+
+const value = [
+  { date: '2016/01/11', count:2 },
+  { date: '2016/04/12', count:2 },
+  { date: '2016/05/01', count:17 },
+  { date: '2016/05/02', count:5 },
+  { date: '2016/05/03', count:27 },
+  { date: '2016/05/04', count:11 },
+  { date: '2016/05/08', count:32 },
+];
+
+const Demo = () => {
+  return (
+    <HeatMap
+      value={value}
+      width={600}
+      style={{ color: '#ad001d', '--rhm-rect-active': 'red' }}
+      startDate={new Date('2016/01/01')}
+      panelColors={['#f4decd', '#e4b293', '#d48462', '#c2533a', '#ad001d', '#6c0012']}
     />
   )
 };
@@ -271,19 +301,19 @@ export default Demo
 
 | Property | Description | Type | Default |
 | ---- | ---- | ---- | ---- |
-| value | Data to be displayed, **required** | Array | `[]` |
-| rectSize | Grid size | number | `11` |
-| legendCellSize | Size of the legend cells, in pixel. Value equal to `0` hide legend. | number | `11` |
-| startDate | Start date | Date | `new Date()` |
-| endDate | End date | Date | - |
-| space | Interval between grid sizes | number | `2` | 
-| monthPlacement | position of month labels | `'top' | 'bottom'` | `top` | 
-| rectProps | Grid node attribute settings | `React.SVGProps<SVGRectElement>` | `2` |
-| weekLabels | Week display | string[] | `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']` | 
-| monthLabels | Month display | string[] | `['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']` | 
-| panelColors | Backgroud color of active colors | `Record<number, string>` | `{ 0: '#EBEDF0', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#196127' }` | 
-| rectRender | Single `day` block re-render | `<E = SVGRectElement>(data: E & { key: number }, valueItem: HeatMapValue & { date: string, column: number, row: number, index: number }) => React.ReactElement` | - |
-| legendRender | Single `legend` block re-render | `(props: React.SVGProps<SVGRectElement>) => React.ReactNode` | - |
+| `value` | Data to be displayed, **required** | Array | `[]` |
+| `rectSize` | Grid size | number | `11` |
+| `legendCellSize` | Size of the legend cells, in pixel. Value equal to `0` hide legend. | number | `11` |
+| `startDate` | Start date | Date | `new Date()` |
+| `endDate` | End date | Date | - |
+| `space` | Interval between grid sizes | number | `2` | 
+| `monthPlacement` | position of month labels | `'top' | 'bottom'` | `top` | 
+| `rectProps` | Grid node attribute settings | `React.SVGProps<SVGRectElement>` | `2` |
+| `weekLabels` | Week display | string[] | `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']` | 
+| `monthLabels` | Month display | string[] | `['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']` | 
+| `panelColors` | Backgroud color of active colors | `Record<number, string>` | `['var(--rhm-rect, #EBEDF0)','#C6E48B','#7BC96F', '#239A3B', '#196127']` | 
+| `rectRender` | Single `day` block re-render | `<E = SVGRectElement>(data: E & { key: number }, valueItem: HeatMapValue & { date: string, column: number, row: number, index: number }) => React.ReactElement` | - |
+| `legendRender` | Single `legend` block re-render | `(props: React.SVGProps<SVGRectElement>) => React.ReactNode` | - |
 
 ## Development
 

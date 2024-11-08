@@ -131,11 +131,11 @@ export default function Example() {
               setSelectDate((e.target as any).dataset.date);
             },
           }}
-          legendRender={(props) => <rect {...props} rx={!enableCircle ? 0 : 5} />}
+          legendRender={(props) => <rect {...props} key={props.key} rx={!enableCircle ? 0 : 5} />}
           rectRender={(props, data) => {
             // if (!data.count) return <rect {...props} />;
             return (
-              <Tooltip placement="top" content={`count: ${data.count || 0}`}>
+              <Tooltip placement="top" key={data.index} content={`count: ${data.count || 0}`}>
                 <rect {...props} />
               </Tooltip>
             );

@@ -41,3 +41,12 @@ export function existColor(num: number = 0, nums: number[], panelColors: Record<
   }
   return color;
 }
+
+export const convertPanelColors = (colors: string[], maxCount: number): Record<number, string> => {
+  const step = Math.ceil(maxCount / (colors.length - 1));
+  const panelColors: Record<number, string> = {};
+  colors.forEach((color, index) => {
+    panelColors[index * step] = color;
+  });
+  return panelColors;
+};

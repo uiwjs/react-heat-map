@@ -2,7 +2,7 @@ import React, { CSSProperties, useEffect, useMemo, useState } from 'react';
 import { LabelsWeek } from './LabelsWeek';
 import { LabelsMonth } from './LabelsMonth';
 import { RectProps  } from './Rect';
-import { isValidDate, oneDayTime } from './utils';
+import { isValidDate, oneDayTime, convertPanelColors } from './utils';
 import Legend, { LegendProps } from './Legend';
 import { Day } from './Day';
 
@@ -33,7 +33,7 @@ export interface SVGProps extends React.SVGProps<SVGSVGElement> {
   monthLabels?: string[] | false;
   /** position of month labels @default `top` */
   monthPlacement?: 'top' | 'bottom';
-  panelColors?: Record<number, string>;
+  panelColors?: Record<number, string> | string[];
 }
 
 export default function SVG(props: SVGProps) {
@@ -50,10 +50,14 @@ export default function SVG(props: SVGProps) {
     value = [],
     weekLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     monthLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    panelColors = { 0: 'var(--rhm-rect, #EBEDF0)', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#196127' },
+    panelColors = ['var(--rhm-rect, #EBEDF0)','#C6E48B','#7BC96F', '#239A3B', '#196127'],
     style,
     ...other
   } = props || {};
+
+  const maxCount = Math.max(...value.map(item => item.count), 0);
+  const panelColorsObject = Array.isArray(panelColors) ? convertPanelColors(panelColors, maxCount) : panelColors;
+  console.log("panelColorsObject", panelColorsObject)
   const [gridNum, setGridNum] = useState(0);
   const [leftPad, setLeftPad] = useState(!!weekLabels ? 28 : 5);
 
@@ -95,7 +99,7 @@ export default function SVG(props: SVGProps) {
       {legendCellSize !== 0 && (
         <Legend
           legendRender={legendRender}
-          panelColors={panelColors}
+          panelColors={panelColorsObject}
           rectSize={rectSize}
           rectY={legendTopPad}
           legendCellSize={legendCellSize}
@@ -122,7 +126,7 @@ export default function SVG(props: SVGProps) {
         rectProps={rectProps}
         rectSize={rectSize}
         rectRender={rectRender}
-        panelColors={panelColors}
+        panelColors={panelColorsObject}
         value={value}
         space={space}
       />
