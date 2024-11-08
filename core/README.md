@@ -311,7 +311,7 @@ export default Demo
 | `rectProps` | Grid node attribute settings | `React.SVGProps<SVGRectElement>` | `2` |
 | `weekLabels` | Week display | string[] | `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']` | 
 | `monthLabels` | Month display | string[] | `['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']` | 
-| `panelColors` | Backgroud color of active colors | `Record<number, string>` | `['var(--rhm-rect, #EBEDF0)','#C6E48B','#7BC96F', '#239A3B', '#196127']` | 
+| `panelColors` | Backgroud color of active colors | `Record<number, string>` \| `string[]` | `['var(--rhm-rect, #EBEDF0)','#C6E48B','#7BC96F', '#239A3B', '#196127']` | 
 | `rectRender` | Single `day` block re-render | `<E = SVGRectElement>(data: E & { key: number }, valueItem: HeatMapValue & { date: string, column: number, row: number, index: number }) => React.ReactElement` | - |
 | `legendRender` | Single `legend` block re-render | `(props: React.SVGProps<SVGRectElement>) => React.ReactNode` | - |
 
