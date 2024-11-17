@@ -57,7 +57,6 @@ export default function SVG(props: SVGProps) {
 
   const maxCount = Math.max(...value.map(item => item.count), 0);
   const panelColorsObject = Array.isArray(panelColors) ? convertPanelColors(panelColors, maxCount) : panelColors;
-  console.log("panelColorsObject", panelColorsObject)
   const [gridNum, setGridNum] = useState(0);
   const [leftPad, setLeftPad] = useState(!!weekLabels ? 28 : 5);
 
