@@ -24,6 +24,7 @@ A lightweight calendar heatmap react component built on SVG, customizable versio
 # Not dependent on uiw.
 npm install @uiw/react-heat-map --save
 ```
+If using Next.js, you will need to use the [`next-remove-imports`](https://www.npmjs.com/package/next-remove-imports) package to avoid errors, see [issue #69](https://github.com/uiwjs/react-heat-map/issues/69).
 
 ## Basic Usage
 
@@ -315,12 +316,12 @@ export default Demo
 | `legendCellSize` | Size of the legend cells, in pixel. Value equal to `0` hide legend. | number | `11` |
 | `startDate` | Start date | Date | `new Date()` |
 | `endDate` | End date | Date | - |
-| `space` | Interval between grid sizes | number | `2` | 
-| `monthPlacement` | position of month labels | `'top' | 'bottom'` | `top` | 
+| `space` | Interval between grid sizes | number | `2` | 
+| `monthPlacement` | position of month labels | `'top' | 'bottom'` | `top` | 
 | `rectProps` | Grid node attribute settings | `React.SVGProps<SVGRectElement>` | `2` |
-| `weekLabels` | Week display | string[] | `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']` | 
-| `monthLabels` | Month display | string[] | `['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']` | 
-| `panelColors` | Backgroud color of active colors | `Record<number, string>` \| `string[]` | `['var(--rhm-rect, #EBEDF0)','#C6E48B','#7BC96F', '#239A3B', '#196127']` | 
+| `weekLabels` | Week display | string[] | `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']` | 
+| `monthLabels` | Month display | string[] | `['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']` | 
+| `panelColors` | Backgroud color of active colors | `Record<number, string>` \| `string[]` | `['var(--rhm-rect, #EBEDF0)','#C6E48B','#7BC96F', '#239A3B', '#196127']` | 
 | `rectRender` | Single `day` block re-render | `<E = SVGRectElement>(data: E & { key: number }, valueItem: HeatMapValue & { date: string, column: number, row: number, index: number }) => React.ReactElement` | - |
 | `legendRender` | Single `legend` block re-render | `(props: React.SVGProps<SVGRectElement>) => React.ReactNode` | - |
 
@@ -367,3 +368,4 @@ Made with [github-action-contributors](https://github.com/jaywcjlove/github-acti
 ## License
 
 Licensed under the MIT License.
+
