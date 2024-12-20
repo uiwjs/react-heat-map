@@ -116,6 +116,7 @@ export default function SVG(props: SVGProps) {
         colNum={gridNum}
         rectY={monthRectY}
         startDate={initStartDate}
+        endDate={endDate}
       />
       <Day
         transform={`translate(${leftPad}, ${topPad})`}
