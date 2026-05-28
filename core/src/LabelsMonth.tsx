@@ -1,5 +1,5 @@
 import React, { Fragment, useMemo } from 'react';
-import { oneDayTime } from './utils';
+import { addDays } from './utils';
 import { SVGProps } from './SVG';
 import { textStyle } from './LabelsWeek';
 
@@ -19,7 +19,7 @@ const generateData = (colNum: number, monthLabels: false | string[], startDate: 
   return Array.from({ length: colNum * 7 })
     .map((_, idx) => {
       if ((idx / 7) % 1 === 0) {
-        const date = new Date(startDate.getTime() + idx * oneDayTime);
+        const date = addDays(startDate, idx);
         const month = date.getMonth();
         if (endDate && date > endDate) return null;
         return { col: idx / 7, index: idx, month, day: date.getDate(), monthStr: monthLabels[month], date };

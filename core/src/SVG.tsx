@@ -2,7 +2,7 @@ import React, { CSSProperties, useEffect, useMemo, useState } from 'react';
 import { LabelsWeek } from './LabelsWeek';
 import { LabelsMonth } from './LabelsMonth';
 import { RectProps  } from './Rect';
-import { isValidDate, oneDayTime, convertPanelColors } from './utils';
+import { isValidDate, convertPanelColors, getStartOfWeek } from './utils';
 import Legend, { LegendProps } from './Legend';
 import { Day } from './Day';
 
@@ -77,10 +77,9 @@ export default function SVG(props: SVGProps) {
 
   const initStartDate = useMemo(() => {
     if (isValidDate(startDate)) {
-      return !startDate.getDay() ? startDate : new Date(startDate.getTime() - startDate.getDay() * oneDayTime);
+      return getStartOfWeek(startDate);
     } else {
-      const newDate = new Date();
-      return new Date(newDate.getTime() - newDate.getDay() * oneDayTime);
+      return getStartOfWeek(new Date());
     }
   }, [startDate]);
 

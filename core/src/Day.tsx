@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren, useMemo } from "react"
 import { Rect, RectProps  } from './Rect';
-import { formatData, getDateToString, existColor, numberSort, oneDayTime } from './utils';
+import { addDays, formatData, getDateToString, existColor, numberSort } from './utils';
 import { SVGProps } from './SVG';
 
 type DayProps = {
@@ -28,7 +28,7 @@ export const Day:FC<PropsWithChildren<DayProps>> = (props) => {
         return (
           <g key={idx} data-column={idx}>
             {[...Array(7)].map((_, cidx) => {
-              const currentDate = new Date(initStartDate.getTime() + oneDayTime * (idx * 7 + cidx));
+              const currentDate = addDays(initStartDate, idx * 7 + cidx);
               const date = getDateToString(currentDate);
               const dataProps: RectProps['value'] = {
                 ...data[date],

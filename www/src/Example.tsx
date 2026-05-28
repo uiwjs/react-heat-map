@@ -94,19 +94,40 @@ const data2: HeatMapValue[] = [
   { date: '2016/04/22', count: 6, content: '' },
 ];
 
+const data3: HeatMapValue[] = [
+  { date: '2025/10/24', count: 9, content: 'DST test data' },
+  { date: '2025/10/25', count: 12, content: 'DST test data' },
+  { date: '2025/10/26', count: 35, content: 'DST test data' },
+  { date: '2025/10/27', count: 18, content: 'DST test data' },
+  { date: '2025/10/28', count: 11, content: 'DST test data' },
+  { date: '2025/10/29', count: 15, content: 'DST test data' },
+  { date: '2025/10/30', count: 21, content: 'DST test data' },
+  { date: '2025/10/31', count: 7, content: 'DST test data' },
+  { date: '2025/11/01', count: 10, content: 'DST test data' },
+  { date: '2025/11/02', count: 6, content: 'DST test data' },
+  { date: '2026/03/27', count: 16, content: 'DST test data' },
+  { date: '2026/03/28', count: 20, content: 'DST test data' },
+  { date: '2026/03/29', count: 24, content: 'DST test data' },
+  { date: '2026/03/30', count: 14, content: 'DST test data' },
+  { date: '2026/03/31', count: 8, content: 'DST test data' },
+];
+
 const darkColor = { 0: 'rgb(255 255 255 / 25%)', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#ff7b00' };
 
 export default function Example() {
   const [value, setValue] = useState(data1);
-  const [selectDate, setSelectDate] = useState();
+  const [selectDate, setSelectDate] = useState<string | undefined>();
   const [enableEndDate, setEnableEndDate] = useState(false);
   const [enableDark, setEnableDark] = useState(false);
   const [enableCircle, setEnableCircle] = useState(false);
+  const [enableDstCase, setEnableDstCase] = useState(false);
   const [rectSize, setRectSize] = useState(11);
   const [monthPlacement, setMonthPlacement] = useState<'top' | 'bottom'>('top');
   const [legendCellSize, setLegendCellSize] = useState<number | undefined>();
   const [enableWeekLabels, setEnableWeekLabels] = useState<false | undefined | string[]>(undefined);
   const [enableMonthLabels, setEnableMonthLabels] = useState<false | undefined | string[]>(undefined);
+  const startDate = enableDstCase ? new Date('2025/10/01') : new Date('2016/01/01');
+  const endDate = enableDstCase ? new Date('2026/04/10') : enableEndDate ? new Date('2016/6/01') : undefined;
   return (
     <Wrapper>
       <ExampleWrapper>
@@ -121,8 +142,8 @@ export default function Example() {
           legendCellSize={legendCellSize}
           weekLabels={enableWeekLabels}
           monthLabels={enableMonthLabels}
-          startDate={new Date('2016/01/01')}
-          endDate={enableEndDate ? new Date('2016/6/01') : undefined}
+          startDate={startDate}
+          endDate={endDate}
           monthPlacement={monthPlacement}
           value={value}
           rectProps={{
@@ -167,9 +188,34 @@ export default function Example() {
       </ExampleWrapper>
       <Tools>
         <div style={{ paddingLeft: 10, paddingBottom: 20 }}>
-          <button onClick={() => setValue(data1)}>Value 1</button>
-          <button onClick={() => setValue(data2)}>Value 2</button>
+          <button
+            onClick={() => {
+              setValue(data1);
+              setEnableDstCase(false);
+            }}
+          >
+            Value 1
+          </button>
+          <button
+            onClick={() => {
+              setValue(data2);
+              setEnableDstCase(false);
+            }}
+          >
+            Value 2
+          </button>
+          <button
+            onClick={() => {
+              setValue(data3);
+              setEnableDstCase(true);
+            }}
+          >
+            DST Value
+          </button>
           <span>{selectDate}</span>
+          <span style={{ marginLeft: 12, color: '#888' }}>
+            {enableDstCase ? 'range: 2025/10/01 - 2026/04/10' : 'range: 2016/01/01 - follow controls'}
+          </span>
         </div>
         <label>
           <input type="checkbox" checked={enableEndDate} onChange={(e) => setEnableEndDate(e.target.checked)} />
